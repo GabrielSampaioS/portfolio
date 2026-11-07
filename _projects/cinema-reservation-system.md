@@ -15,7 +15,7 @@ technologies:
   - Pino Logger
   - Supertest
 # image: /assets/images/projects/cinema.png
-  - github: https://github.com/GabrielSampaioS/cinema-reservation-system
+github: https://github.com/GabrielSampaioS/cinema-reservation-system
 # demo: https://exemplo.com
 ---
 

@@ -8,7 +8,7 @@
 
 - name: Banco de dados
   slug: banco-de-dados
-  items: [PostgreSQL, MongoDB, Redis]
+  items: [SQLServer, PostgreSQL, MongoDB, Redis]
 
 - name: Testes
   slug: testes

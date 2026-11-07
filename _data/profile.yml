@@ -33,15 +33,15 @@ experience:
     location: Piracicaba, SP · Presencial
     period: "09/2026 – atual"
     icon: gear
-    items: 
-      - Parametrização de sensores.
-      - Reuniões com clientes para apresentação do site.
-      - Verificações intermediárias (calibração) de equipamentos de temperatura.
-      - Controle de estoque.
-      - Manutenção de sensores
+    items:
+      - Parametrização e configuração de sensores, assegurando o correto funcionamento dos equipamentos.
+      - Participação em reuniões com clientes para apresentação de plataformas e funcionalidades do sistema.
+      - Execução de verificações intermediárias em equipamentos de medição de temperatura, com comparação de resultados em relação a padrões de referência.
+      - Controle e organização de estoque de equipamentos, componentes e materiais técnicos.
+      - Execução de atividades de manutenção preventiva e corretiva em sensores, visando preservar seu funcionamento e confiabilidade.
     
 
-  - role: Assistente de Suporte Técnico Júnior
+  - role: Suporte Técnico Júnior
     company: BoerSoft Soluções em Sistemas
     location: Piracicaba, SP
     period: "10/2022 – 05/2026"
@@ -91,7 +91,7 @@ experience:
     location: Águas de São Pedro, SP
     period: "10/2019 – 01/2020"
     icon: flask
-     items:
+    items:
       - Parametrização e configuração de sensores, assegurando o correto funcionamento dos equipamentos.
       - Reuniões com clientes para apresentação de plataformas e funcionalidades do sistema.
       - Execução de verificações intermediárias em equipamentos de medição de temperatura, com comparação de resultados em relação a padrões de referência.

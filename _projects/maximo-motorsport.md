@@ -10,8 +10,8 @@ technologies:
   - Git
   - GitHub Pages
 # image: /assets/images/projects/maximo.png
-  - github: https://github.com/maximomotorsportbr-jpg/MaximoMotorsportHomePage-
-  - demo: https://maximomotorsportbr-jpg.github.io/MaximoMotorsportHomePage-/
+github: https://github.com/maximomotorsportbr-jpg/MaximoMotorsportHomePage-
+demo: https://maximomotorsportbr-jpg.github.io/MaximoMotorsportHomePage-/
 ---
 
 ## O que foi feito

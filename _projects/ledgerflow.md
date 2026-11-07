@@ -14,7 +14,7 @@ technologies:
   - GitHub Actions
   - Supertest
 # image: /assets/images/projects/ledgerflow.png
-  - github: https://github.com/GabrielSampaioS/LedgerFlow
+github: https://github.com/GabrielSampaioS/LedgerFlow
 # demo: https://exemplo.com
 ---
 

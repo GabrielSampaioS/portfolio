@@ -8,7 +8,7 @@ technologies:
   - Firebase
   - Provider
 # image: /assets/images/projects/ativos.png
-  - github: https://github.com/GabrielSampaioS/asset-batch-manager
+github: https://github.com/GabrielSampaioS/asset-batch-manager
 ---
 
 ## O que foi feito
