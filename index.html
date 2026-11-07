@@ -1,0 +1,52 @@
+---
+layout: default
+title: Home
+permalink: /
+---
+<section class="hero container">
+  <div class="hero-text">
+    <p class="eyebrow">// olá, mundo</p>
+    <h1>{{ site.author.name }}<span class="accent">.</span></h1>
+    <p class="hero-role">{{ site.tagline }}</p>
+    <p class="lead">{{ site.data.profile.summary }}</p>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="{{ '/contact/' | relative_url }}">Contato</a>
+      {% include social-links.html %}
+    </div>
+
+    <ul class="chips hero-chips" aria-label="Tecnologias principais">
+      {%- for tech in site.data.profile.stack_highlights -%}
+        <li class="chip">{{ tech }}</li>
+      {%- endfor -%}
+    </ul>
+  </div>
+
+  <div class="terminal" aria-hidden="true">
+    <div class="terminal-bar"><i></i><i></i><i></i><span>bash — gabriel</span></div>
+    <pre class="terminal-body"><span class="t-muted">$</span> whoami
+{{ site.author.github | downcase }}
+<span class="t-muted">$</span> cat stack.txt
+{{ site.data.profile.stack_highlights | slice: 0, 4 | join: " · " | downcase }}
+<span class="t-muted">$</span> git log --oneline -1
+feat: sempre aprendendo algo novo
+<span class="t-muted">$</span> <span class="cursor">▌</span></pre>
+  </div>
+</section>
+
+<section class="section container" aria-labelledby="featured-title">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">// projetos</p>
+      <h2 id="featured-title">Projetos em destaque</h2>
+    </div>
+    <a href="{{ '/projects/' | relative_url }}">Ver todos →</a>
+  </div>
+
+  {%- assign featured = site.projects | where: "featured", true | sort: "order" -%}
+  <div class="grid">
+    {%- for project in featured -%}
+      {% include project-card.html project=project %}
+    {%- endfor -%}
+  </div>
+</section>

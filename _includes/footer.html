@@ -1,0 +1,9 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© {{ "now" | date: "%Y" }} {{ site.author.name }} · feito com Jekyll</p>
+    <p class="footer-links">
+      {% include social-links.html class="footer-link" %}
+      <a class="footer-link" href="mailto:{{ site.author.email }}">E-mail</a>
+    </p>
+  </div>
+</footer>

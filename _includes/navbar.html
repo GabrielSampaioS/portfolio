@@ -1,0 +1,25 @@
+<header class="site-header">
+  <nav class="navbar container" aria-label="Principal">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <span class="brand-prompt">&gt;_</span> {{ site.author.name | slugify }}<span class="cursor" aria-hidden="true">▌</span>
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="nav-menu">
+      {%- for item in site.data.navigation -%}
+        {%- assign is_active = false -%}
+        {%- if item.url == "/" -%}
+          {%- if page.url == "/" -%}{%- assign is_active = true -%}{%- endif -%}
+        {%- elsif page.url contains item.url -%}
+          {%- assign is_active = true -%}
+        {%- endif -%}
+        <li>
+          <a href="{{ item.url | relative_url }}"{% if is_active %} class="is-active" aria-current="page"{% endif %}>{{ item.title }}</a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </nav>
+</header>

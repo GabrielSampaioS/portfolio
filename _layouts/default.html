@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'pt-BR' }}">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <a class="skip-link" href="#main">Ir para o conteúdo</a>
+  {% include navbar.html %}
+
+  <main id="main">
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+  <script src="{{ '/assets/js/nav.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/reveal.js' | relative_url }}" defer></script>
+  {%- for s in page.scripts -%}
+    <script src="{{ '/assets/js/' | append: s | append: '.js' | relative_url }}" defer></script>
+  {%- endfor -%}
+</body>
+</html>

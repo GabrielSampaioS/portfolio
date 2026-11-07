@@ -1,0 +1,23 @@
+- name: Backend
+  slug: backend
+  items: [Node.js, TypeScript, Express]
+
+- name: Linguagens
+  slug: linguagens
+  items: [C++, JavaScript, TypeScript, Python]
+
+- name: Banco de dados
+  slug: banco-de-dados
+  items: [PostgreSQL, MongoDB, Redis]
+
+- name: Testes
+  slug: testes
+  items: [Unitários, Integração, E2E]
+
+- name: Infraestrutura
+  slug: infraestrutura
+  items: [Docker, Git, Linux]
+
+- name: Mobile
+  slug: mobile
+  items: [Flutter, Firebase, Provider]

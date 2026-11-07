@@ -1,0 +1,30 @@
+{%- capture full_title -%}
+  {%- if page.title and page.url != "/" -%}{{ page.title }} · {% endif -%}
+  {{ site.title }} — {{ site.tagline }}
+{%- endcapture -%}
+{%- assign desc = page.description | default: page.summary | default: site.description | strip_html | strip_newlines | truncate: 160 -%}
+{%- assign canonical = page.url | absolute_url -%}
+{%- assign og_image = page.image | default: "/assets/images/og-image.png" | absolute_url -%}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0d10">
+<title>{{ full_title | strip }}</title>
+<meta name="description" content="{{ desc | escape }}">
+<meta name="author" content="{{ site.author.name }}">
+<link rel="canonical" href="{{ canonical }}">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:title" content="{{ full_title | strip | escape }}">
+<meta property="og:description" content="{{ desc | escape }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:image" content="{{ og_image }}">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b0d10'/%3E%3Ctext x='5' y='22' font-family='monospace' font-size='16' font-weight='700' fill='%233ddc97'%3E%26gt%3B_%3C/text%3E%3C/svg%3E">
+<link rel="sitemap" type="application/xml" href="{{ '/sitemap.xml' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+<script>document.documentElement.classList.add("js");</script>

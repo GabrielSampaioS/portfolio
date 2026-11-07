@@ -1,0 +1,38 @@
+title: Gabriel Sampaio
+tagline: Software Developer
+description: >-
+  Portfólio de Gabriel Sampaio, desenvolvedor back-end com foco em
+  Node.js, TypeScript e arquitetura de software.
+lang: pt-BR
+
+url: "https://GabrielSampaioS.github.io"
+baseurl: ""
+
+author:
+  name: Gabriel Sampaio
+  email: gabrielsampaio0211@gmail.com
+  github: GabrielSampaioS
+  linkedin: gabriel-sampaio0122
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+
+permalink: pretty
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor

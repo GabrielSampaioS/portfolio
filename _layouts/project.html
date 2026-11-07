@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<article class="container section project-page">
+  <a class="back-link" href="{{ '/projects/' | relative_url }}">← todos os projetos</a>
+
+  <header class="project-header">
+    <p class="eyebrow">// projeto</p>
+    <h1>{{ page.title }}</h1>
+    <p class="lead">{{ page.summary }}</p>
+
+    <ul class="chips" aria-label="Tecnologias">
+      {%- for t in page.technologies -%}<li class="chip">{{ t }}</li>{%- endfor -%}
+    </ul>
+
+    <div class="actions">
+      {%- if page.github -%}<a class="btn btn-primary" href="{{ page.github }}" target="_blank" rel="noopener noreferrer">Ver no GitHub</a>{%- endif -%}
+      {%- if page.demo -%}<a class="btn btn-ghost" href="{{ page.demo }}" target="_blank" rel="noopener noreferrer">Ver demo</a>{%- endif -%}
+    </div>
+  </header>
+
+  {%- if page.image -%}
+    <img class="project-cover" src="{{ page.image | relative_url }}" alt="Screenshot do projeto {{ page.title }}" width="1200" height="675">
+  {%- endif -%}
+
+  <div class="prose">
+    {{ content }}
+  </div>
+</article>
