@@ -2,6 +2,7 @@
 layout: default
 title: Home
 permalink: /
+scripts: [carousel]
 ---
 <section class="hero container">
   <div class="hero-text">
@@ -44,9 +45,15 @@ feat: sempre aprendendo algo novo
   </div>
 
   {%- assign featured = site.projects | where: "featured", true | sort: "order" -%}
-  <div class="grid">
-    {%- for project in featured -%}
-      {% include project-card.html project=project %}
-    {%- endfor -%}
+  <div class="carousel" data-carousel>
+    <div class="carousel-controls">
+      <button type="button" class="carousel-btn" data-carousel-prev aria-label="Projeto anterior">←</button>
+      <button type="button" class="carousel-btn" data-carousel-next aria-label="Próximo projeto">→</button>
+    </div>
+    <div class="carousel-track" data-carousel-track tabindex="0" role="region" aria-label="Projetos em destaque">
+      {%- for project in featured -%}
+        {% include project-card.html project=project %}
+      {%- endfor -%}
+    </div>
   </div>
 </section>

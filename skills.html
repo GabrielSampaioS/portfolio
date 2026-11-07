@@ -11,7 +11,12 @@ permalink: /skills/
   <div class="skills-grid">
     {%- for category in site.data.technologies -%}
       <section class="panel reveal" aria-labelledby="cat-{{ category.slug }}">
-        <h2 class="panel-title" id="cat-{{ category.slug }}"><span class="t-muted">~/</span>{{ category.slug }}</h2>
+        <h2 class="panel-title" id="cat-{{ category.slug }}">
+          {%- if category.icon -%}
+            <span class="panel-icon">{% include icon.html name=category.icon %}</span>
+          {%- endif -%}
+          <span><span class="t-muted">~/</span>{{ category.slug }}</span>
+        </h2>
         <ul class="chips">
           {%- for item in category.items -%}
             <li class="chip">{{ item }}</li>
