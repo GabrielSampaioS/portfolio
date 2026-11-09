@@ -63,6 +63,49 @@
   opacity: 0.4;
 }
 
+/* Corpo em Markdown das páginas de projeto (_projetos/*.md) */
+.project-body { color: #D4D4D4; font-size: 15px; line-height: 1.75; }
+.project-body > * + * { margin-top: 1.25rem; }
+.project-body h2 {
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.5rem;
+  color: var(--bw-white); text-transform: uppercase; letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--bw-gray-3); padding-bottom: 0.5rem; margin-top: 2.5rem;
+}
+.project-body h3 {
+  font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.15rem;
+  color: var(--bw-white); margin-top: 2rem;
+}
+.project-body a { color: var(--bw-white); text-decoration: underline; text-underline-offset: 3px; }
+.project-body ul { list-style: square; padding-left: 1.4rem; }
+.project-body ol { list-style: decimal; padding-left: 1.4rem; }
+.project-body li + li { margin-top: 0.4rem; }
+.project-body strong { color: var(--bw-white); }
+.project-body code {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.85em;
+  background: var(--bw-charcoal); border: 1px solid var(--bw-gray-2); padding: 0.1em 0.4em;
+}
+.project-body pre {
+  background: #0A0A0A; border: 1px solid var(--bw-gray-2); padding: 1rem; overflow-x: auto;
+}
+.project-body pre code { background: none; border: 0; padding: 0; }
+.project-body blockquote { border-left: 2px solid var(--bw-white); padding-left: 1rem; color: var(--bw-gray-1); }
+.project-body img { max-width: 100%; border: 1px solid var(--bw-gray-2); }
+.project-body table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+.project-body th, .project-body td { border: 1px solid var(--bw-gray-2); padding: 0.5rem 0.75rem; text-align: left; }
+
+/* Âncoras não ficam escondidas atrás do header fixo (celular tem a barra de atalhos) */
+html { scroll-padding-top: 8.5rem; }
+@media (min-width: 768px) { html { scroll-padding-top: 6.5rem; } }
+
+/* Item ativo da navegação (definido por assets/js/nav.js) */
+.nav-link.is-active { color: var(--bw-white); box-shadow: 0 2px 0 0 var(--bw-white); padding-bottom: 4px; }
+.nav-chip { transition: background-color .15s, color .15s, border-color .15s; }
+.nav-chip.is-active { background: var(--bw-white); color: var(--bw-black); border-color: var(--bw-white); font-weight: 700; }
+
+/* Esconde a barra de rolagem dos atalhos do celular */
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
 /* Material Symbols */
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;

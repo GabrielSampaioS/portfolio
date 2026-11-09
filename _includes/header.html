@@ -1,28 +1,39 @@
 {% assign p = site.data.profile %}
 {% assign home = '/' | relative_url %}
-<header class="border-b border-neutral-800 bg-black/95 backdrop-blur-md sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-6 sm:px-12 py-5 flex items-center justify-between gap-6">
+<header id="site-header" class="border-b border-neutral-800 bg-black/95 backdrop-blur-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 sm:px-12 py-4 md:py-5 flex items-center justify-between gap-6">
 
     <div class="flex items-center gap-4">
-      <div class="w-11 h-11 border border-white bg-[#171717] flex items-center justify-center relative">
+      <div class="w-11 h-11 border border-white bg-[#171717] flex items-center justify-center relative shrink-0">
         <span class="font-headline font-bold text-white text-lg tracking-tighter">{{ p.initials }}</span>
         <div class="absolute -top-1 -right-1 w-2 h-2 bg-white"></div>
       </div>
       <div>
         <a href="{{ home }}#hero" class="font-headline text-lg sm:text-xl font-bold tracking-widest uppercase text-white hover:text-neutral-300 transition block">{{ p.name }}</a>
-        <span class="text-[10px] text-neutral-400 uppercase tracking-widest block font-mono">{{ p.role_short }}</span>
+        <span class="hidden sm:block text-[10px] text-neutral-400 uppercase tracking-widest font-mono">{{ p.role_short }}</span>
       </div>
     </div>
 
-    <nav class="hidden md:flex items-center gap-7 font-mono text-[10px] uppercase tracking-widest font-semibold">
+    <!-- Desktop -->
+    <nav class="hidden md:flex items-center gap-7 font-mono text-[10px] uppercase tracking-widest font-semibold" aria-label="Seções">
       {% for item in p.nav %}
         {% if item.cta %}
-        <a href="{{ home }}#{{ item.id }}" class="px-5 py-2 bg-white text-black hover:bg-neutral-200 font-bold uppercase tracking-wider transition border border-white">{{ item.label }}</a>
+        <a href="{{ home }}#{{ item.id }}" data-spy="{{ item.id }}" class="px-5 py-2 bg-white text-black hover:bg-neutral-200 font-bold uppercase tracking-wider transition border border-white">{{ item.label }}</a>
         {% else %}
-        <a href="{{ home }}#{{ item.id }}" class="text-neutral-400 hover:text-white transition">{{ item.label }}</a>
+        <a href="{{ home }}#{{ item.id }}" data-spy="{{ item.id }}" class="nav-link text-neutral-400 hover:text-white transition">{{ item.label }}</a>
         {% endif %}
       {% endfor %}
     </nav>
   </div>
+
+  <!-- Celular: atalhos rolaveis com a seção atual destacada -->
+  <nav class="md:hidden relative flex gap-2 overflow-x-auto px-6 pb-3 font-mono text-[11px] uppercase tracking-widest no-scrollbar" aria-label="Seções">
+    <a href="{{ home }}#hero" data-spy="hero" class="nav-chip shrink-0 px-3.5 py-1.5 border border-neutral-700 text-neutral-400">Home</a>
+    {% for item in p.nav %}
+    <a href="{{ home }}#{{ item.id }}" data-spy="{{ item.id }}" class="nav-chip shrink-0 px-3.5 py-1.5 border border-neutral-700 text-neutral-400">{{ item.short | default: item.label }}</a>
+    {% endfor %}
+  </nav>
+
   <div class="cadence-rule"></div>
+  <div id="scroll-progress" class="absolute bottom-0 left-0 h-[2px] bg-white" style="width:0"></div>
 </header>
