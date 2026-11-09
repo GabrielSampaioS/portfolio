@@ -1,0 +1,182 @@
+{% assign st = site.data.stats %}
+{% assign gh = st.github %}
+{% assign lc = st.leetcode %}
+{% assign lc_total = lc.easy | plus: lc.medium | plus: lc.hard %}
+{% assign easy_pct = lc.easy | times: 100.0 | divided_by: lc_total | round: 1 %}
+{% assign med_pct = lc.medium | times: 100.0 | divided_by: lc_total | round: 1 %}
+{% assign hard_pct = lc.hard | times: 100.0 | divided_by: lc_total | round: 1 %}
+
+<section id="activity" class="py-20 border-b border-neutral-800 space-y-12">
+
+  <div class="flex flex-wrap items-end justify-between gap-4 border-b border-neutral-800 pb-6">
+    <div class="space-y-2">
+      <div class="inline-flex items-center gap-2 font-mono text-xs text-white">
+        <span class="w-1.5 h-1.5 bg-[#42C982]"></span>
+        <span>ACTIVITY ARCHIVE // DISCIPLINE &amp; PROBLEM-SOLVING</span>
+      </div>
+      <h2 class="font-headline text-3xl sm:text-4xl font-bold uppercase tracking-wider text-white">Developer Activity &amp; Statistics</h2>
+    </div>
+    <div class="font-mono text-xs text-neutral-400">// GITHUB &amp; LEETCODE ACTIVITY</div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+    <!-- GitHub -->
+    <div class="lg:col-span-7 bw-frame bg-[#171717] p-6 sm:p-8 flex flex-col justify-between space-y-6">
+      <div class="space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-neutral-800 pb-4">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-white text-2xl">terminal</span>
+            <div>
+              <h3 class="font-headline text-lg sm:text-xl font-bold text-white uppercase tracking-wide">GitHub Contribution History</h3>
+              <span class="font-mono text-[10px] text-neutral-400 uppercase tracking-wider">@{{ gh.username }} • 52-WEEK COMMIT CADENCE</span>
+            </div>
+          </div>
+          <div class="text-right">
+            <span class="block font-display text-2xl font-bold text-white tracking-tight">{{ gh.total_contributions }}</span>
+            <span class="font-mono text-[9px] text-[#42C982] uppercase tracking-widest font-semibold">TOTAL CONTRIBUTIONS / YEAR</span>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="flex items-center justify-between font-mono text-[10px] text-neutral-400 uppercase">
+            <span>52 WEEKS ACTIVITY GRAPH</span>
+            <div class="flex items-center gap-1.5">
+              <span>Less</span>
+              <span class="w-2.5 h-2.5 bg-[#171717] border border-neutral-800"></span>
+              <span class="w-2.5 h-2.5 bg-[#123D2B]"></span>
+              <span class="w-2.5 h-2.5 bg-[#176B45]"></span>
+              <span class="w-2.5 h-2.5 bg-[#239B63]"></span>
+              <span class="w-2.5 h-2.5 bg-[#42C982]"></span>
+              <span class="w-2.5 h-2.5 bg-[#85E0AD]"></span>
+              <span>More</span>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto pb-2 border border-neutral-800/80 bg-black p-2.5">
+            <div id="github-heatmap-grid" class="flex gap-1 min-w-[580px] select-none"></div>
+          </div>
+
+          <div id="github-tooltip" class="h-6 font-mono text-[11px] text-neutral-300 border-t border-neutral-800/60 pt-2">
+            Hover over a cell to examine contribution metrics.
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-neutral-800 pt-5 space-y-4">
+        <div class="flex items-center justify-between font-mono text-xs text-white">
+          <span class="uppercase font-bold">MONTHLY COMMIT MOMENTUM</span>
+          <span class="text-neutral-400 text-[10px]">AVG {{ gh.avg_per_month }} COMMITS/MO</span>
+        </div>
+
+        <div class="grid grid-cols-12 gap-1.5 items-end h-16 pt-2 font-mono text-[9px] text-neutral-400 text-center">
+          {% for m in gh.months %}
+          {% if m.h >= 100 %}{% assign mc = '#85E0AD' %}{% elsif m.h >= 95 %}{% assign mc = '#42C982' %}{% elsif m.h >= 80 %}{% assign mc = '#239B63' %}{% else %}{% assign mc = '#176B45' %}{% endif %}
+          <div class="flex flex-col items-center gap-1 h-full justify-end">
+            <div class="w-full hover:opacity-80 transition" style="height: {{ m.h }}%; background-color: {{ mc }};" title="{{ m.c }} commits"></div>
+            <span>{{ m.l }}</span>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="pt-3 border-t border-neutral-800 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px]">
+          <span class="text-neutral-400">ACTIVE REPOS: <strong class="text-white">{{ gh.active_repos }}</strong></span>
+          <span class="text-neutral-400">PULL REQUESTS: <strong class="text-white">{{ gh.pull_requests }}</strong></span>
+          <span class="text-neutral-400">CODE REVIEWS: <strong class="text-white">{{ gh.code_reviews }}</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LeetCode -->
+    <div class="lg:col-span-5 bw-frame bg-[#171717] p-6 sm:p-8 flex flex-col justify-between space-y-6">
+      <div class="space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-neutral-800 pb-4">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-white text-2xl">code_blocks</span>
+            <div>
+              <h3 class="font-headline text-lg sm:text-xl font-bold text-white uppercase tracking-wide">LeetCode Statistics</h3>
+              <span class="font-mono text-[10px] text-neutral-400 uppercase tracking-wider">ALGORITHMS &amp; DATA STRUCTURES</span>
+            </div>
+          </div>
+          <div class="text-right">
+            <span class="block font-display text-2xl font-bold text-white tracking-tight">{{ lc_total }}</span>
+            <span class="font-mono text-[9px] text-[#42C982] uppercase tracking-widest font-semibold">TOTAL SOLVED</span>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="grid grid-cols-3 gap-3 text-center">
+            <div class="border border-neutral-800 bg-black p-3 space-y-1">
+              <span class="font-mono text-[10px] text-neutral-400 uppercase tracking-wider block">Easy</span>
+              <span class="font-display text-2xl font-bold text-white block">{{ lc.easy }}</span>
+              <span class="font-mono text-[9px] text-[#239B63] font-semibold">{{ easy_pct }}%</span>
+            </div>
+            <div class="border border-neutral-700 bg-black p-3 space-y-1">
+              <span class="font-mono text-[10px] text-white uppercase tracking-wider block font-bold">Medium</span>
+              <span class="font-display text-2xl font-bold text-white block">{{ lc.medium }}</span>
+              <span class="font-mono text-[9px] text-[#42C982] font-semibold">{{ med_pct }}%</span>
+            </div>
+            <div class="border border-neutral-800 bg-black p-3 space-y-1">
+              <span class="font-mono text-[10px] text-neutral-400 uppercase tracking-wider block">Hard</span>
+              <span class="font-display text-2xl font-bold text-white block">{{ lc.hard }}</span>
+              <span class="font-mono text-[9px] text-neutral-500">{{ hard_pct }}%</span>
+            </div>
+          </div>
+
+          <div class="space-y-1.5 pt-1">
+            <div class="w-full h-2.5 bg-black border border-neutral-700 flex overflow-hidden">
+              <div style="width: {{ easy_pct }}%;" class="bg-[#176B45] h-full"></div>
+              <div style="width: {{ med_pct }}%;" class="bg-[#42C982] h-full"></div>
+              <div style="width: {{ hard_pct }}%;" class="bg-neutral-800 h-full border-l border-neutral-600"></div>
+            </div>
+            <div class="flex justify-between font-mono text-[9px] text-neutral-400 uppercase">
+              <span class="flex items-center gap-1"><span class="w-2 h-2 bg-[#176B45] inline-block"></span> Easy ({{ lc.easy }})</span>
+              <span class="flex items-center gap-1"><span class="w-2 h-2 bg-[#42C982] inline-block"></span> Medium ({{ lc.medium }})</span>
+              <span class="flex items-center gap-1"><span class="w-2 h-2 bg-neutral-800 border border-neutral-600 inline-block"></span> Hard ({{ lc.hard }})</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-neutral-800 pt-5 space-y-3">
+        <div class="flex items-center justify-between font-mono text-[10px] text-white">
+          <span class="uppercase font-bold">SUBMISSION CADENCE (LAST 26 WEEKS)</span>
+          <span class="text-[#42C982] font-semibold">{{ lc.submissions_26w }} SUBMISSIONS</span>
+        </div>
+        <div class="overflow-x-auto pb-1 border border-neutral-800/80 bg-black p-2.5">
+          <div id="leetcode-heatmap-grid" class="flex gap-1 min-w-[280px] select-none"></div>
+        </div>
+        <div id="leetcode-tooltip" class="h-5 font-mono text-[10px] text-neutral-400 pt-1">Hover over cells to examine submission streaks.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Linguagens -->
+  <div class="bw-frame bg-[#171717] p-6 sm:p-8 space-y-6">
+    <div class="flex flex-wrap items-center justify-between gap-4 border-b border-neutral-800 pb-4">
+      <div>
+        <span class="font-mono text-[10px] text-white uppercase tracking-widest font-bold block">CORE SYSTEM DISCIPLINES</span>
+        <h3 class="font-headline text-xl font-bold text-white uppercase tracking-wide">Top Programming Languages</h3>
+      </div>
+      <span class="font-mono text-xs text-neutral-400">SYSTEM-LEVEL &amp; BACKEND LOGIC</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+      {% for lang in st.languages %}
+      <div class="border border-neutral-800 bg-black p-5 space-y-3">
+        <div class="flex items-center justify-between font-mono text-xs">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 {{ lang.color }}"></span>
+            <span class="font-headline font-bold text-white text-base tracking-wider uppercase">{{ lang.name }}</span>
+          </div>
+          <span class="text-neutral-400 text-[11px] uppercase">{{ lang.tag }}</span>
+        </div>
+        <p class="font-body text-xs text-neutral-400 leading-relaxed">{{ lang.description }}</p>
+        <div class="w-full h-1.5 bg-neutral-900 border border-neutral-700 overflow-hidden">
+          <div class="h-full {{ lang.color }} w-full"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

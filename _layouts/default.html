@@ -1,22 +1,17 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: 'pt-BR' }}">
-<head>
-  {% include head.html %}
-</head>
-<body>
-  <a class="skip-link" href="#main">Ir para o conteúdo</a>
-  {% include navbar.html %}
+<html lang="{{ site.lang | default: 'pt-BR' }}" class="scroll-smooth bg-black">
+{% include head.html %}
+<body class="bg-black text-[#F2F0EB] font-body antialiased min-h-screen selection:bg-white selection:text-black monochrome-canvas">
+  {% include header.html %}
 
-  <main id="main">
+  <main class="max-w-7xl mx-auto px-6 sm:px-12">
     {{ content }}
   </main>
 
   {% include footer.html %}
 
-  <script src="{{ '/assets/js/nav.js' | relative_url }}" defer></script>
-  <script src="{{ '/assets/js/reveal.js' | relative_url }}" defer></script>
-  {%- for s in page.scripts -%}
-    <script src="{{ '/assets/js/' | append: s | append: '.js' | relative_url }}" defer></script>
-  {%- endfor -%}
+  {% for js in page.scripts %}
+  <script src="{{ '/assets/js/' | append: js | relative_url }}" defer></script>
+  {% endfor %}
 </body>
 </html>

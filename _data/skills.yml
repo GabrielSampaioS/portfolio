@@ -1,0 +1,53 @@
+- title: LANGUAGES
+  subtitle: SYNTAX & LOGIC
+  tag: CORE
+  icon: code
+  items: [JavaScript (ES6+), TypeScript, C (Engineering), SQL, HTML5 / CSS3]
+
+- title: RUNTIMES & APIS
+  subtitle: SERVICES & PROTOCOLS
+  tag: BACKEND
+  icon: dns
+  items: [Node.js, Express, RESTful APIs, Custom Middleware]
+
+- title: DATABASES & STORAGE
+  subtitle: PERSISTENCE & SCHEMAS
+  tag: DATA
+  icon: database
+  items: [PostgreSQL, MongoDB, Redis (Cache), Prisma ORM]
+
+- title: DEVOPS & INFRA
+  subtitle: PIPELINES & CONTAINERS
+  tag: INFRA
+  icon: developer_board
+  items: [Docker, Git / GitHub, Linux / Bash, GitHub Actions]
+
+- title: ARCHITECTURE
+  subtitle: SYSTEM PATTERNS
+  tag: DESIGN
+  icon: account_tree
+  items: [Clean Architecture, SOLID Principles, Layered Pattern, MVC Structure]
+
+- title: CLIENT & MOBILE
+  subtitle: CROSS-PLATFORM APPS
+  tag: CLIENT
+  icon: devices
+  items: [Flutter, Dart, Responsive UI, State Management]
+
+- title: VERIFICATION
+  subtitle: TESTING & QA
+  tag: QUALITY
+  icon: rule
+  items: [Jest, Unit Testing, Integration Tests, Postman]
+
+- title: PRODUCTION OPS
+  subtitle: SLA & SUPPORT
+  tag: OPS
+  icon: terminal
+  items: [Technical Support, Software Deployments, Requirements Analysis, Bug Triage]
+
+- title: COMPUTER ENG
+  subtitle: HARDWARE & THEORY
+  tag: THEORY
+  icon: memory
+  items: [Data Structures, Algorithms, Computer Architecture, Operating Systems]

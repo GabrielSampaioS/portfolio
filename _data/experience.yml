@@ -1,0 +1,69 @@
+# Ordem: mais recente primeiro. O número "ref" é gerado pelo loop.
+- role: Auxiliar de Engenharia
+  company: Clima Core
+  period: "Setembro de 2026 – Presente"
+  tag: "ENGINEERING & SENSORS"
+  icon: sensors
+  current: true
+  bullets:
+    - Parametrização e configuração de sensores, assegurando o correto funcionamento dos equipamentos.
+    - Participação em reuniões com clientes para apresentação de plataformas e funcionalidades do sistema.
+    - Execução de verificações intermediárias em equipamentos de medição de temperatura, com comparação de resultados em relação a padrões de referência.
+    - Controle e organização de estoque de equipamentos, componentes e materiais técnicos.
+    - Execução de atividades de manutenção preventiva e corretiva em sensores, visando preservar seu funcionamento e confiabilidade.
+
+- role: Assistente de Suporte Técnico Júnior
+  company: BoerSoft Soluções em Sistemas
+  period: "Outubro de 2022 – Maio de 2026"
+  tag: "SYSTEMS & SQL SERVER"
+  icon: terminal
+  bullets:
+    - "Atendimento e resolução de incidentes em sistemas corporativos, garantindo o cumprimento de SLA."
+    - "Participação na implantação de sistemas e levantamento de requisitos junto aos clientes."
+    - "Modelagem e manutenção de estruturas relacionais em SQL Server."
+    - "Desenvolvimento e manutenção de procedures para automação de processos e consultas."
+    - "Colaboração com equipes de desenvolvimento na identificação e correção de falhas sistêmicas."
+
+- role: Assistente de Documentação Técnica
+  company: GLP Laboratórios
+  period: "Maio de 2022 – Outubro de 2022"
+  tag: "AUTOMATION & DOCUMENTATION"
+  icon: description
+  bullets:
+    - "Padronização e validação de planilhas de cálculo utilizadas em análises laboratoriais, garantindo rastreabilidade e conformidade com requisitos normativos."
+    - "Colaboração com equipes de TI e fornecedores na validação e ajuste de sistemas internos."
+    - "Execução de testes funcionais e documentação de processos técnicos."
+    - "Desenvolvimento de automações em VBA e Excel avançado, reduzindo atividades manuais e minimizando erros operacionais."
+
+- role: Técnico de Laboratório
+  company: GLP Laboratórios
+  period: "Outubro de 2020 – Junho de 2022"
+  tag: "SPECTROPHOTOMETRY & QUALITY"
+  icon: science
+  bullets:
+    - "Realização de ensaios físico-químicos e espectrofotométricos (UV/Vis) em amostras ambientais e industriais."
+    - "Operação de equipamentos laboratoriais, incluindo espectrofotômetros, Espectro Gama e sistemas de fluxo gasoso."
+    - "Apoio às atividades de controle de qualidade, garantindo a confiabilidade dos resultados analíticos."
+    - "Participação na elaboração e atualização de Procedimentos Operacionais Padrão (POPs)."
+
+- role: Auxiliar de Laboratório
+  company: GLP Laboratórios
+  period: "Fevereiro de 2020 – Outubro de 2020"
+  tag: "LABORATORY OPERATIONS"
+  icon: biotech
+  bullets:
+    - "Preparação de amostras, reagentes e materiais utilizados em análises laboratoriais."
+    - "Apoio às rotinas de espectrofotometria UV/Vis e processos envolvendo fluxo gasoso."
+    - "Organização de materiais, higienização de vidrarias e descarte adequado de resíduos químicos."
+    - "Suporte às atividades analíticas, contribuindo para a eficiência e qualidade dos processos laboratoriais."
+
+- role: Estagiário de Laboratório
+  company: GLP Laboratórios
+  period: "Outubro de 2019 – Janeiro de 2020"
+  tag: "LABORATORY INTERNSHIP"
+  icon: tune
+  bullets:
+    - "Suporte às atividades laboratoriais, incluindo preparo de soluções, controle de materiais e manutenção básica de equipamentos."
+    - "Apoio à equipe técnica na execução de rotinas de química analítica e controle de qualidade."
+    - "Aplicação de normas de segurança e boas práticas laboratoriais no ambiente de trabalho."
+    - "Desenvolvimento de conhecimentos em instrumentação laboratorial, procedimentos analíticos e documentação técnica."

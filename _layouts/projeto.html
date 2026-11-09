@@ -1,0 +1,91 @@
+---
+layout: default
+---
+{% assign all = site.projetos | sort: "order" %}
+{% for p in all %}{% if p.url == page.url %}{% assign idx = forloop.index0 %}{% assign pos = forloop.index %}{% endif %}{% endfor %}
+{% if idx > 0 %}{% assign prev_i = idx | minus: 1 %}{% assign prev = all[prev_i] %}{% endif %}
+{% assign next_i = idx | plus: 1 %}
+{% assign next = all[next_i] %}
+
+<article class="py-16 md:py-20 space-y-12">
+
+  <div class="flex flex-wrap items-center justify-between gap-4 border-b border-neutral-800 pb-4 font-mono text-xs">
+    <a href="{{ '/' | relative_url }}#projects" class="text-neutral-400 hover:text-white transition uppercase tracking-widest flex items-center gap-2">
+      <span class="material-symbols-outlined text-sm">arrow_back</span> Back to Selected Systems
+    </a>
+    <span class="text-neutral-400 uppercase tracking-widest">SYS REF // {% if pos < 10 %}0{% endif %}{{ pos }} / {% if all.size < 10 %}0{% endif %}{{ all.size }}</span>
+  </div>
+
+  <header class="space-y-5 max-w-4xl">
+    <span class="font-mono text-xs text-white uppercase tracking-widest font-bold block">{{ page.modal.category }}</span>
+    <h1 class="font-display text-4xl sm:text-6xl leading-[1.05] font-bold text-white tracking-tight uppercase">{{ page.title }}</h1>
+    <p class="font-body text-lg text-neutral-400 leading-relaxed">{{ page.summary }}</p>
+
+    <div class="flex flex-wrap items-center gap-3 pt-2">
+      <span class="font-mono text-[10px] uppercase tracking-widest bg-[#171717] text-white px-2.5 py-1 border border-neutral-700">{{ page.badge }}</span>
+      {% if page.repo %}
+      <a href="{{ page.repo }}" target="_blank" rel="noopener noreferrer" class="px-5 py-2 bg-white text-black font-mono text-xs uppercase tracking-widest font-bold hover:bg-neutral-200 transition border border-white flex items-center gap-2">
+        Repository <span class="material-symbols-outlined text-sm">open_in_new</span>
+      </a>
+      {% endif %}
+      {% if page.demo %}
+      <a href="{{ page.demo }}" target="_blank" rel="noopener noreferrer" class="px-5 py-2 border border-neutral-600 text-white font-mono text-xs uppercase tracking-widest font-semibold hover:bg-[#171717] transition flex items-center gap-2">
+        Live Demo <span class="material-symbols-outlined text-sm">open_in_new</span>
+      </a>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+
+    <div class="lg:col-span-8 space-y-8">
+      <section class="bw-frame bg-[#171717] p-6 sm:p-8 space-y-3">
+        <h2 class="font-mono text-xs uppercase tracking-wider text-white font-bold">System Scope &amp; Objective</h2>
+        <p class="font-body text-sm sm:text-base text-neutral-300 leading-relaxed">{{ page.modal.description }}</p>
+      </section>
+
+      <section class="bw-frame bg-[#171717] p-6 sm:p-8 space-y-3">
+        <h2 class="font-mono text-xs uppercase tracking-wider text-white font-bold">Backend Architecture Solution</h2>
+        <p class="font-body text-sm sm:text-base text-neutral-300 leading-relaxed">{{ page.modal.solution }}</p>
+      </section>
+
+      <section class="border-l-2 border-white pl-5 space-y-2">
+        <h2 class="font-mono text-[10px] text-white uppercase tracking-wider font-semibold">Architectural Highlight</h2>
+        <p class="font-body text-sm sm:text-base text-[#F2F0EB] leading-relaxed">{{ page.highlight }}</p>
+      </section>
+
+      {% assign body = content | strip %}
+      {% if body != "" %}
+      <div class="project-body">
+        {{ content }}
+      </div>
+      {% endif %}
+    </div>
+
+    <aside class="lg:col-span-4">
+      <div class="bw-frame bg-[#171717] p-6 space-y-4 lg:sticky lg:top-28">
+        <h2 class="font-mono text-xs uppercase tracking-wider text-white font-bold border-b border-neutral-800 pb-3">Technical Components</h2>
+        <div class="flex flex-wrap gap-2 font-mono text-xs">
+          {% for t in page.modal.techs %}
+          <span class="px-2.5 py-1 bg-black border border-neutral-700 text-white">{{ t }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <nav class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-neutral-800 pt-8 font-mono text-xs" aria-label="Projetos">
+    {% if prev %}
+    <a href="{{ prev.url | relative_url }}" class="bw-frame bg-[#171717] p-5 hover:border-white transition block">
+      <span class="text-neutral-400 uppercase tracking-widest block pb-1">← Previous</span>
+      <span class="font-headline text-base font-bold text-white">{{ prev.title }}</span>
+    </a>
+    {% else %}<span></span>{% endif %}
+    {% if next %}
+    <a href="{{ next.url | relative_url }}" class="bw-frame bg-[#171717] p-5 hover:border-white transition block sm:text-right">
+      <span class="text-neutral-400 uppercase tracking-widest block pb-1">Next →</span>
+      <span class="font-headline text-base font-bold text-white">{{ next.title }}</span>
+    </a>
+    {% endif %}
+  </nav>
+</article>

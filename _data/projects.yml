@@ -1,0 +1,64 @@
+- id: cinema
+  category: backend
+  badge: ROW LOCKING
+  title: Cinema Reservation System
+  summary: High-concurrency seat reservation engine with transactional seat locking, conflict elimination, and JWT authenticated role administration.
+  highlight: Implemented pessimistic concurrency control with PostgreSQL row locks to guarantee zero double-booking under burst traffic.
+  techs: [Node.js, TypeScript, PostgreSQL, Docker]
+  modal:
+    category: "BACKEND API // HIGH-CONCURRENCY LOCKING"
+    description: A backend service architected to manage seat allocations across multiple auditoriums during burst booking intervals. Eliminates duplicate ticket allocation hazards under concurrent HTTP requests.
+    solution: Employs strict PostgreSQL isolation and row-level locking (SELECT ... FOR UPDATE) transactions. Built with Node.js, TypeScript, and Express, providing JWT authorization for administrative ticket verification and seat configuration.
+    techs: [Node.js, TypeScript, PostgreSQL, Express, Docker, JWT]
+
+- id: ledger
+  category: backend
+  badge: ACID TRANSACTIONS
+  title: LedgerFlow Financial Engine
+  summary: Auditable double-entry accounting REST API engineered with strict isolation levels, idempotent request keys, and comprehensive ledger balance sheets.
+  highlight: Mathematically enforces zero-sum transaction invariants across debit and credit journal entries before commit.
+  techs: [Express, TypeScript, PostgreSQL, Jest]
+  modal:
+    category: "FINANCIAL BACKEND // ACID INVARIANTS"
+    description: A double-entry bookkeeping REST API modeled after financial clearinghouses. Prevents unbalanced ledger states and guarantees immutable auditing logs for all ledger account postings.
+    solution: Implements strict atomic database transactions where total debits must equal total credits before persistence. Idempotency keys prevent duplicate settlement requests across retries.
+    techs: [Express, TypeScript, PostgreSQL, Jest, Docker]
+
+- id: assets
+  category: fullstack
+  badge: ASYNC PIPELINE
+  title: Asset Batch Manager
+  summary: Media ingestion pipeline handling batch uploads, parallel image transformations, MongoDB cataloging, and secure S3-compatible cloud storage.
+  highlight: Decoupled upload ingestion from image resizing using asynchronous background worker queues with retry policies.
+  techs: [Node.js, MongoDB, Docker, MinIO]
+  modal:
+    category: "FULLSTACK PIPELINE // ASYNC QUEUES"
+    description: An asset processing service handling high-volume media ingestion, automatic multi-resolution image transformations, and metadata classification.
+    solution: Separates synchronous upload reception from computationally intensive transformations using asynchronous BullMQ worker queues and MinIO S3-compatible storage.
+    techs: [Node.js, MongoDB, Docker, MinIO S3, Express, TypeScript]
+
+- id: anotaai
+  category: mobile
+  badge: LOCAL SQLITE
+  title: AnotaAí Mobile Note Studio
+  summary: Mobile application built in Flutter with local-first SQLite persistence, tagged hierarchies, and smooth bi-directional synchronization to remote backends.
+  highlight: Designed offline-first synchronization using monotonic timestamp tracking and conflict resolution rules.
+  techs: [Flutter, Dart, SQLite, REST Client]
+  modal:
+    category: "MOBILE CLIENT // LOCAL-FIRST SQLITE"
+    description: A cross-platform mobile utility built for rapid note recording, multi-tag indexing, and resilient offline functionality.
+    solution: Built in Flutter and Dart with an embedded SQLite database engine. Uses local-first caching with automatic background synchronization when network connectivity is established.
+    techs: [Flutter, Dart, SQLite, REST APIs, State Management]
+
+- id: queue
+  category: backend
+  badge: FAULT TOLERANCE
+  title: Distributed Queue Worker
+  summary: Fault-tolerant background job distribution service featuring Redis-backed priority queues, exponential retry algorithms, and dead-letter analysis.
+  highlight: Guaranteed at-least-once message processing with heartbeated leasing locks to prevent phantom task duplication.
+  techs: [TypeScript, Redis, BullMQ, Docker]
+  modal:
+    category: "DISTRIBUTED WORKER // FAULT TOLERANCE"
+    description: A distributed job orchestration system designed to reliably process background operations with rate limiting and exponential backoff retry algorithms.
+    solution: Utilizes Redis as the coordination layer with BullMQ. Tasks that encounter runtime errors are channeled into dead-letter queues for diagnosis without impeding throughput.
+    techs: [TypeScript, Redis, BullMQ, Node.js, Docker]

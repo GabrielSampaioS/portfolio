@@ -1,0 +1,41 @@
+# ATENÇÃO: os números abaixo vieram do HTML original e são ILUSTRATIVOS.
+# Substitua pelos valores reais (ou use show: false para ocultar a seção inteira).
+show: true
+
+github:
+  username: GabrielSampaioS
+  total_contributions: 1248      # ALTERE
+  avg_per_month: 104             # ALTERE
+  active_repos: 18               # ALTERE
+  pull_requests: 64              # ALTERE
+  code_reviews: 41               # ALTERE
+  # Altura relativa (0-100) e total de commits por mês, Jan a Dez
+  months:
+    - { l: J, h: 55, c: 68 }
+    - { l: F, h: 72, c: 94 }
+    - { l: M, h: 85, c: 112 }
+    - { l: A, h: 68, c: 88 }
+    - { l: M, h: 95, c: 130 }
+    - { l: J, h: 100, c: 142 }
+    - { l: J, h: 80, c: 108 }
+    - { l: A, h: 75, c: 98 }
+    - { l: S, h: 92, c: 125 }
+    - { l: O, h: 98, c: 136 }
+    - { l: N, h: 82, c: 110 }
+    - { l: D, h: 60, c: 78 }
+
+leetcode:
+  easy: 116      # ALTERE
+  medium: 33    # ALTERE
+  hard: 00      # ALTERE
+  submissions_26w: 312   # ALTERE
+
+languages:
+  - name: C++
+    tag: SYSTEMS & ALGORITHMS
+    description: Applied extensively in Computer Engineering coursework, low-level data structures, algorithmic complexity optimization, and memory-constrained problem-solving on LeetCode.
+    color: bg-white
+  - name: Python
+    tag: SCRIPTING & DATA LOGIC
+    description: Utilized for rapid algorithmic prototyping, computational simulations, backend automation scripts, and data manipulation pipelines.
+    color: bg-neutral-400

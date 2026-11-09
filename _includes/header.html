@@ -1,0 +1,28 @@
+{% assign p = site.data.profile %}
+{% assign home = '/' | relative_url %}
+<header class="border-b border-neutral-800 bg-black/95 backdrop-blur-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 sm:px-12 py-5 flex items-center justify-between gap-6">
+
+    <div class="flex items-center gap-4">
+      <div class="w-11 h-11 border border-white bg-[#171717] flex items-center justify-center relative">
+        <span class="font-headline font-bold text-white text-lg tracking-tighter">{{ p.initials }}</span>
+        <div class="absolute -top-1 -right-1 w-2 h-2 bg-white"></div>
+      </div>
+      <div>
+        <a href="{{ home }}#hero" class="font-headline text-lg sm:text-xl font-bold tracking-widest uppercase text-white hover:text-neutral-300 transition block">{{ p.name }}</a>
+        <span class="text-[10px] text-neutral-400 uppercase tracking-widest block font-mono">{{ p.role_short }}</span>
+      </div>
+    </div>
+
+    <nav class="hidden md:flex items-center gap-7 font-mono text-[10px] uppercase tracking-widest font-semibold">
+      {% for item in p.nav %}
+        {% if item.cta %}
+        <a href="{{ home }}#{{ item.id }}" class="px-5 py-2 bg-white text-black hover:bg-neutral-200 font-bold uppercase tracking-wider transition border border-white">{{ item.label }}</a>
+        {% else %}
+        <a href="{{ home }}#{{ item.id }}" class="text-neutral-400 hover:text-white transition">{{ item.label }}</a>
+        {% endif %}
+      {% endfor %}
+    </nav>
+  </div>
+  <div class="cadence-rule"></div>
+</header>

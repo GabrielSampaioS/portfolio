@@ -1,0 +1,60 @@
+{% assign projects = site.projetos | sort: "order" %}
+{% assign cats = projects | map: "category" | uniq %}
+
+<section id="projects" class="py-20 border-b border-neutral-800 space-y-12">
+
+  <div class="flex flex-wrap items-end justify-between gap-4">
+    <div class="space-y-2">
+      <div class="inline-flex items-center gap-2 font-mono text-xs text-white">
+        <span class="w-1.5 h-1.5 bg-white"></span>
+        <span>SYSTEMS PORTFOLIO // SELECTED CASE BUILDS</span>
+      </div>
+      <h2 class="font-headline text-3xl sm:text-4xl font-bold uppercase tracking-wider text-white">Selected Backend Systems &amp; Projects</h2>
+    </div>
+
+    <div class="flex flex-wrap gap-2" id="project-filters">
+      <button type="button" data-filter="all" class="category-btn px-4 py-2 bg-white text-black font-mono text-xs uppercase tracking-widest font-bold border border-white transition cursor-pointer">
+        All Systems ({{ projects | size }})
+      </button>
+      {% for cat in cats %}
+      <button type="button" data-filter="{{ cat }}" class="category-btn px-4 py-2 border border-neutral-700 bg-[#171717] text-neutral-400 font-mono text-xs uppercase tracking-widest font-semibold hover:border-white hover:text-white transition cursor-pointer">
+        {{ cat | capitalize }}
+      </button>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {% for proj in projects %}
+    <article class="project-card bw-frame bg-[#171717] flex flex-col justify-between p-6 space-y-6 group hover:border-white transition duration-300" data-category="{{ proj.category }}">
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
+          <span class="font-mono text-xs text-white font-bold">SYS REF // {% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+          <span class="font-mono text-[10px] uppercase tracking-widest bg-black text-white px-2.5 py-1 border border-neutral-700">{{ proj.badge }}</span>
+        </div>
+
+        <h3 class="font-headline text-2xl font-bold text-white">{{ proj.title }}</h3>
+        <p class="font-body text-sm text-neutral-400 leading-relaxed">{{ proj.summary }}</p>
+
+        <div class="border-t border-neutral-800 pt-3 space-y-2">
+          <div class="font-mono text-[10px] text-white uppercase tracking-wider font-semibold">Architectural Highlight:</div>
+          <p class="font-body text-xs text-[#F2F0EB]">{{ proj.highlight }}</p>
+        </div>
+      </div>
+
+      <div class="space-y-4 pt-2 border-t border-neutral-800">
+        <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+          {% for t in proj.techs %}
+          <span class="px-2 py-0.5 bg-black border border-neutral-700 {% if forloop.last %}text-neutral-400{% else %}text-white{% endif %}">{{ t }}</span>
+          {% endfor %}
+        </div>
+
+        <a href="{{ proj.url | relative_url }}" class="w-full py-2.5 bg-black border border-neutral-700 text-white hover:border-white hover:bg-[#171717] font-mono text-xs uppercase tracking-widest font-bold transition flex items-center justify-center gap-2">
+          Examine System Dossier
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>

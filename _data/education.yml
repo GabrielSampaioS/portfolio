@@ -1,0 +1,30 @@
+- kind: "GRADUAÇÃO"
+  period: "Julho de 2023 – Junho de 2027"
+  title: Bacharelado em Engenharia da Computação
+  school: Univesp Oficial
+  description: Fundamentos de sistemas computacionais, programação, estruturas de dados, redes, arquitetura de computadores e inteligência artificial. Formação abrangendo desenvolvimento de software (POO, web, mobile e compiladores), engenharia de software, algoritmos, bancos de dados, computação em nuvem, IoT, sistemas embarcados, protocolos de comunicação, análise de dados, matemática aplicada, física, controle e automação.
+  highlight: true
+
+- kind: "APERFEIÇOAMENTO"
+  period: "Setembro de 2026 – Novembro de 2026"
+  title: Programação em Inteligência Artificial Generativa
+  school: SENAI São Paulo
+  description: Estudos voltados à identificação e ao treinamento de inteligências artificiais generativas, com desenvolvimento de programas aplicados a Machine Learning, redes neurais artificiais, processamento de linguagem natural e visão computacional. Introdução à criação e personalização de modelos de inteligência artificial utilizando Python e fundamentos de lógica de programação.
+
+- kind: "CURSO TÉCNICO"
+  period: "Julho de 2023 – Janeiro de 2025"
+  title: Técnico em Desenvolvimento de Sistemas
+  school: ETEC – Escola Técnica Estadual de São Paulo
+  description: Formação técnica em desenvolvimento de sistemas, com atividades e competências relacionadas a bancos de dados, programação e linguagens de consulta.
+
+- kind: "TECNÓLOGO"
+  period: "Janeiro de 2022 – Novembro de 2023"
+  title: Curso Superior de Tecnologia em Programação
+  school: Universidade Cruzeiro do Sul
+  description: Formação superior em programação, com atividades acadêmicas voltadas à programação e competências relacionadas a linguagens de consulta e Git.
+
+- kind: "CURSO TÉCNICO"
+  period: "Janeiro de 2018 – Novembro de 2019"
+  title: Técnico em Química
+  school: ETEC – Escola Técnica Estadual de São Paulo
+  description: Formação técnica em química, com conhecimentos em química analítica e utilização de equipamentos laboratoriais.

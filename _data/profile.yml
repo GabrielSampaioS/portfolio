@@ -1,147 +1,57 @@
-# Todo o conteúdo pessoal fica aqui. Edite à vontade.
+# Dados gerais do portfólio
+name: Gabriel Sampaio
+initials: GS
+role_short: "DESENVOLVEDOR BACKEND • ENGENHARIA DA COMPUTAÇÃO (UNIVESP)"
+role_label: "DESENVOLVEDOR BACKEND JÚNIOR & ESTUDANTE DE ENGENHARIA DA COMPUTAÇÃO"
+headline_top: "Gabriel Sampaio —"
+headline_sub: "Sistemas Backend & Lógica."
+summary: "Desenvolvedor Backend com experiência no desenvolvimento de APIs REST utilizando Node.js e TypeScript, suporte a sistemas corporativos, SQL Server, automação de processos e implantação de soluções. Estudante de Engenharia da Computação, com interesse em arquitetura de software, estruturas de dados, engenharia de software e desenvolvimento de sistemas escaláveis."
 
-summary: >-
-  Desenvolvedor back-end júnior com experiência em APIs REST com Node.js
-  e participação em sistemas em produção. Atuação em sustentação,
-  implantação e levantamento de requisitos. Interesse em arquitetura de
-  software e desenvolvimento de soluções escaláveis.
+plaque_left: "PIRACICABA, SÃO PAULO"
+plaque_right: "EDIÇÃO DE PORTFÓLIO GS-2026 // ART DÉCO MONOCROMÁTICO"
 
-stack_highlights:
-  - Node.js
-  - TypeScript
-  - Express
-  - PostgreSQL
-  - MongoDB
-  - Docker
-  - Flutter
+# Badges do hero
+badges: [Node.js, TypeScript, Express, PostgreSQL, MongoDB, Docker, Flutter]
 
-about:   # ✏️ texto base, ajuste com as suas palavras
-  - "Sou desenvolvedor back-end júnior, com foco em APIs REST com Node.js e TypeScript e interesse em arquitetura de software."
-  - "Minha trajetória na área técnica começou em 2019, com documentação técnica em laboratório. Desde 2022 atuo com suporte técnico, implantação de sistemas e levantamento de requisitos junto a clientes. Em paralelo, estudo desenvolvimento de sistemas e engenharia da computação e construo projetos pessoais."
-  - "Nos meus projetos, pratico Clean Architecture, DDD, SOLID, Event Sourcing, testes automatizados e pipelines de CI/CD."
+# Card "Especificações de Engenharia"
+spec:
+  - { label: "Foco Principal:", value: "APIs REST & Sistemas Backend" }
+  - { label: "Atuação Atual:", value: "Clima Core" }
+  - { label: "Formação Acadêmica:", value: "UNIVESP - Engenharia da Computação" }
+  - { label: "Período Acadêmico:", value: "2023 — 2027" }
 
-interests:
-  - Engenharia de software
-  - Algoritmos
-  - Estruturas de dados
-  - Desenvolvimento back-end
-  - Arquitetura de software
+# Menu do topo
+nav:
+  - { id: experience, label: "01. Experiência & Formação" }
+  - { id: projects, label: "02. Projetos Selecionados" }
+  - { id: skills, label: "03. Competências Técnicas" }
+  - { id: activity, label: "04. Atividade & Estatísticas" }
+  - { id: contact, label: "05. Contato", cta: true }
 
-experience:
-  - role: Auxiliar de Engenharia
-    company: Clima Core
-    location: Piracicaba, SP · Presencial
-    period: "09/2026 – atual"
-    icon: gear
-    items:
-      - Parametrização e configuração de sensores, assegurando o correto funcionamento dos equipamentos.
-      - Participação em reuniões com clientes para apresentação de plataformas e funcionalidades do sistema.
-      - Execução de verificações intermediárias em equipamentos de medição de temperatura, com comparação de resultados em relação a padrões de referência.
-      - Controle e organização de estoque de equipamentos, componentes e materiais técnicos.
-      - Execução de atividades de manutenção preventiva e corretiva em sensores, visando preservar seu funcionamento e confiabilidade.
-    
+# Narrativa da seção de experiência
+narrative_title: "TRAJETÓRIA PROFISSIONAL DA INSTRUMENTAÇÃO À ENGENHARIA DE SOFTWARE"
+narrative_kicker: "RASTREABILIDADE • PRECISÃO • LÓGICA"
 
-  - role: Suporte Técnico Júnior
-    company: BoerSoft Soluções em Sistemas
-    location: Piracicaba, SP
-    period: "10/2022 – 05/2026"
-    icon: headset
-    items:
-      - Atendimento e resolução de incidentes em sistemas corporativos, garantindo cumprimento de SLA.
-      - Participação na implantação de sistemas e levantamento de requisitos junto aos clientes.
-      - Modelagem e manutenção de estruturas relacionais em SQL Server.
-      - Desenvolvimento e manutenção de procedures para automação de processos e consultas.
-      - Colaboração com equipes de desenvolvimento na identificação e correção de falhas sistêmicas.
+narrative:
+  - "Minha trajetória profissional reúne experiências em ambientes laboratoriais, automação de processos, suporte a sistemas corporativos e engenharia. Ao longo desse percurso, desenvolvi uma visão técnica orientada à análise de problemas, confiabilidade operacional e melhoria contínua de processos."
+  - "A experiência com ensaios físico-químicos, instrumentação, validação de planilhas, documentação normativa e sistemas corporativos contribuiu para uma abordagem cuidadosa no desenvolvimento de software. Atualmente, direciono essa experiência para a engenharia backend, trabalhando com APIs REST, modelagem de dados, validação, testes e organização arquitetural, enquanto aprofundo meus conhecimentos em Engenharia da Computação."
 
-  - role: Assistente de Documentação Técnica
-    company: GLP Laboratórios
-    location: Piracicaba, SP
-    period: "05/2022 – 10/2022"
-    icon: file-text
-    items:
-      - Padronização e validação de planilhas de cálculo utilizadas em análises laboratoriais, garantindo rastreabilidade e conformidade com requisitos normativos.
-      - Colaboração com equipes de TI e fornecedores na validação e ajuste de sistemas internos.
-      - Execução de testes funcionais e documentação de processos técnicos.
-      - Desenvolvimento de automações em VBA e Excel avançado, reduzindo atividades manuais e minimizando erros operacionais.
+narrative_tags:
+  - "Instrumentação & Sensores"
+  - "Node.js, TypeScript & APIs REST"
+  - "SQL Server & PostgreSQL"
+  - "Automação de Processos & VBA"
 
-  - role: Técnico de Laboratório
-    company: GLP Laboratórios
-    location: Piracicaba, SP
-    period: "10/2020 – 06/2022"
-    icon: atom
-    items:
-      - Realização de ensaios físico-químicos e espectrofotométricos (UV/Vis) em amostras ambientais e industriais.
-      - Operação de equipamentos laboratoriais, incluindo espectrofotômetros, Espectro Gama e sistemas de fluxo gasoso.
-      - Apoio às atividades de controle de qualidade, garantindo a confiabilidade dos resultados analíticos.
-      - Participação na elaboração e atualização de Procedimentos Operacionais Padrão (POPs).
+# Contato
+contact:
+  email: "gabrielssampaio42@gmail.com"
+  location: "Piracicaba, São Paulo, Brasil (UTC-3)"
+  availability: "DISPONÍVEL PARA OPORTUNIDADES EM DESENVOLVIMENTO"
+  response_time: "RESPOSTA EM ATÉ 24 HORAS"
+  intro: "Aberto a oportunidades como Desenvolvedor Backend Júnior, desafios de engenharia de software e colaborações em projetos de tecnologia."
+  github: "https://github.com/GabrielSampaioS"
+  linkedin: "https://www.linkedin.com/in/gabriel-sampaio0122/"
+  # Endpoint do Formspree/Getform/etc. Vazio = formulário apenas simula o envio.
+  form_endpoint: ""
 
-  - role: Auxiliar de Laboratório
-    company: GLP Laboratórios
-    location: Piracicaba, SP
-    period: "02/2020 – 10/2020"
-    icon: test-tube
-    items:
-      - Preparação de amostras, reagentes e materiais utilizados em análises laboratoriais.
-      - Apoio às rotinas de espectrofotometria UV/Vis e processos envolvendo fluxo gasoso.
-      - Organização de materiais, higienização de vidrarias e descarte adequado de resíduos químicos.
-      - Suporte às atividades analíticas, contribuindo para a eficiência e qualidade dos processos laboratoriais.
-
-  - role: Estagiário de Laboratório
-    company: GLP Laboratórios
-    location: Águas de São Pedro, SP
-    period: "10/2019 – 01/2020"
-    icon: flask
-    items:
-      - Parametrização e configuração de sensores, assegurando o correto funcionamento dos equipamentos.
-      - Reuniões com clientes para apresentação de plataformas e funcionalidades do sistema.
-      - Execução de verificações intermediárias em equipamentos de medição de temperatura, com comparação de resultados em relação a padrões de referência.
-      - Controle e organização de estoque de equipamentos, componentes e materiais técnicos.
-      - Execução de atividades de manutenção e corretiva em sensores
-
-education:
-  - title: Bacharelado em Engenharia da Computação
-    school: UNIVESP
-    period: "07/2023 – 06/2027"
-    items:
-      - Formação abrangendo desenvolvimento de software, algoritmos, estruturas de dados, engenharia de software e bancos de dados.
-      - Estudos em arquitetura de computadores, redes, computação em nuvem, sistemas embarcados e Internet das Coisas (IoT).
-      - Fundamentos de inteligência artificial, análise de dados, estatística, matemática aplicada e sistemas de controle.
-
-  - title: Programação em Inteligência Artificial Generativa
-    school: SENAI
-    period: "09/2026 – 11/2026"
-    items:
-      - Desenvolvimento de aplicações utilizando Python e fundamentos de programação para inteligência artificial.
-      - Estudos em Machine Learning, redes neurais artificiais, processamento de linguagem natural e visão computacional.
-      - Introdução ao treinamento, desenvolvimento e personalização de modelos de inteligência artificial generativa.
-
-  - title: Técnico em Desenvolvimento de Sistemas
-    school: ETEC
-    period: "07/2023 – 01/2025"
-    items:
-      - Formação em desenvolvimento de sistemas, lógica de programação e paradigmas de programação.
-      - Modelagem e gerenciamento de bancos de dados relacionais, com utilização de linguagens de consulta SQL.
-      - Desenvolvimento de aplicações e aplicação de conceitos de engenharia de software e controle de versão.
-
-  - title: Curso Superior de Tecnologia em Programação
-    school: Universidade Cruzeiro do Sul
-    period: "01/2022 – 11/2023"
-    items:
-      - Estudos em lógica de programação, desenvolvimento de software e fundamentos de computação.
-      - Desenvolvimento de conhecimentos em programação e gerenciamento de bancos de dados.
-      - Utilização de ferramentas de controle de versão e práticas de desenvolvimento de software.
-
-  - title: Técnico em Química
-    school: ETEC
-    period: "01/2018 – 11/2019"
-    items:
-      - Formação em química analítica, físico-química e fundamentos de processos químicos.
-      - Estudos em técnicas de análise laboratorial, preparação de soluções e utilização de equipamentos.
-      - Aplicação de procedimentos técnicos, boas práticas laboratoriais e normas de segurança.
-
-languages:
-  - name: Inglês
-    level: Intermediário (B1–B2)
-
-# Formulário: crie um formulário grátis em https://formspree.io e cole o endereço aqui.
-form_action: "https://formspree.io/f/SEU_ID_AQUI"
+footer_note: "HOSPEDADO NO GITHUB PAGES • PORTFÓLIO GS-2026"

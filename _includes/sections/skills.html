@@ -1,0 +1,38 @@
+{% assign skills = site.data.skills %}
+<section id="skills" class="py-20 border-b border-neutral-800 space-y-12">
+
+  <div class="flex flex-wrap items-end justify-between gap-4">
+    <div class="space-y-2">
+      <div class="inline-flex items-center gap-2 font-mono text-xs text-white">
+        <span class="w-1.5 h-1.5 bg-white"></span>
+        <span>SYSTEM SPECIFICATIONS // {{ skills | size }} CANONICAL MODULES</span>
+      </div>
+      <h2 class="font-headline text-3xl sm:text-4xl font-bold uppercase tracking-wider text-white">Technical Competencies &amp; Systems Stack</h2>
+    </div>
+    <span class="font-mono text-xs text-neutral-400 tracking-widest uppercase">NO ARBITRARY PERCENTAGES</span>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for s in skills %}
+    <div class="bw-frame bg-[#171717] p-6 space-y-4">
+      <div class="flex items-center justify-between border-b border-neutral-800 pb-3 font-mono text-xs">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 border border-neutral-600 bg-black flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-white text-base">{{ s.icon }}</span>
+          </div>
+          <div>
+            <span class="text-white font-bold uppercase block">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }} // {{ s.title }}</span>
+            <span class="text-[9px] text-neutral-400 uppercase tracking-widest">{{ s.subtitle }}</span>
+          </div>
+        </div>
+        <span class="text-neutral-500 font-mono text-[10px]">{{ s.tag }}</span>
+      </div>
+      <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
+        {% for item in s.items %}
+        <span class="px-2.5 py-1 bg-black border border-neutral-700 {% if forloop.index <= 2 %}text-white{% elsif forloop.index == 3 %}text-[#F2F0EB]{% else %}text-neutral-400{% endif %}">{{ item }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>

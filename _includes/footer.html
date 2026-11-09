@@ -1,9 +1,19 @@
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <p>© {{ "now" | date: "%Y" }} {{ site.author.name }} · feito com Jekyll</p>
-    <p class="footer-links">
-      {% include social-links.html class="footer-link" %}
-      <a class="footer-link" href="mailto:{{ site.author.email }}">E-mail</a>
-    </p>
+{% assign p = site.data.profile %}
+<footer class="border-t border-neutral-800 bg-black py-12 px-6 sm:px-12">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+    <div class="space-y-1">
+      <div class="font-headline text-white text-lg tracking-widest uppercase font-bold">{{ p.name }}</div>
+      <p class="font-mono text-xs text-neutral-400 uppercase tracking-wider">Junior Backend Developer • B.S. Computer Engineering (UNIVESP)</p>
+    </div>
+
+    <div class="flex items-center gap-6 font-mono text-xs text-neutral-400 uppercase tracking-widest">
+      <a href="{{ '/' | relative_url }}#hero" class="hover:text-white transition">Top of Folio</a>
+      <span class="text-white">•</span>
+      <a href="{{ p.contact.github }}" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">GitHub</a>
+      <span class="text-white">•</span>
+      <a href="{{ p.contact.linkedin }}" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">LinkedIn</a>
+    </div>
+
+    <div class="font-mono text-[10px] text-neutral-500 uppercase">{{ p.footer_note }}</div>
   </div>
 </footer>
