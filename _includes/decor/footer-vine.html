@@ -1,0 +1,170 @@
+{% comment %} Fonte botânica sobre o rodapé (decorativo, aria-hidden) {% endcomment %}
+  <div class="relative w-full select-none pointer-events-none pt-4 -mb-10 z-20">
+    <!-- Subtle Ambient Green/Gold Misted Glow -->
+    <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-2/3 h-24 bg-gradient-to-t from-[#143625]/20 via-[#0a1d13]/10 to-transparent blur-xl pointer-events-none"></div>
+
+    <div class="w-full max-w-7xl mx-auto px-6 relative z-20">
+      <svg viewBox="0 0 1200 130" class="w-full h-24 sm:h-28 md:h-32 overflow-visible filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)] opacity-95" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="gardenTrunk" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#2a5c42"></stop>
+            <stop offset="40%" stop-color="#1d4531"></stop>
+            <stop offset="80%" stop-color="#0f291c"></stop>
+            <stop offset="100%" stop-color="#050e09"></stop>
+          </linearGradient>
+
+          <linearGradient id="gardenTrunkAlt" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#3b7a57"></stop>
+            <stop offset="40%" stop-color="#2b5e43"></stop>
+            <stop offset="80%" stop-color="#193d2b"></stop>
+            <stop offset="100%" stop-color="#081810"></stop>
+          </linearGradient>
+
+          <linearGradient id="leafDark" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1f4430"></stop>
+            <stop offset="60%" stop-color="#10281c"></stop>
+            <stop offset="100%" stop-color="#07130d"></stop>
+          </linearGradient>
+
+          <linearGradient id="leafEmerald" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#2e6449"></stop>
+            <stop offset="60%" stop-color="#183d2c"></stop>
+            <stop offset="100%" stop-color="#081710"></stop>
+          </linearGradient>
+
+          <linearGradient id="leafSage" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#3f7a5c"></stop>
+            <stop offset="60%" stop-color="#1f4a34"></stop>
+            <stop offset="100%" stop-color="#0c2016"></stop>
+          </linearGradient>
+
+          <linearGradient id="goldVein" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#F4E0A5" stop-opacity="0.9"></stop>
+            <stop offset="50%" stop-color="#C5A059" stop-opacity="0.7"></stop>
+            <stop offset="100%" stop-color="#735722" stop-opacity="0.3"></stop>
+          </linearGradient>
+        </defs>
+
+        <!-- ============================================== -->
+        <!-- DELICATE ARCHITECTURAL BASELINE (FRIEZE)       -->
+        <!-- ============================================== -->
+        <line x1="0" y1="80" x2="1200" y2="80" stroke="#163827" stroke-width="1.2"></line>
+        <line x1="0" y1="78" x2="1200" y2="78" stroke="#C5A059" stroke-width="0.5" stroke-dasharray="6 5" opacity="0.6"></line>
+
+        <!-- ============================================== -->
+        <!-- RISING DELICATE SPROUTS & CASCADING TENDRILS   -->
+        <!-- (Flowing both upright and draping down past y=80 over footer) -->
+        <!-- ============================================== -->
+
+        <!-- 1. CENTER CLUSTER (X: 520 - 680) -->
+        <!-- Upward central slender stem -->
+        <path d="M 600 80 C 598 55, 608 30, 600 12" fill="none" stroke="url(#gardenTrunk)" stroke-width="1.8" stroke-linecap="round"></path>
+        <path d="M 600 80 C 598 55, 608 30, 600 12" fill="none" stroke="url(#goldVein)" stroke-width="0.5" stroke-dasharray="5 5"></path>
+
+        <!-- Downward cascading tendrils dropping over the footer line (y=80 to y=118) -->
+        <path d="M 600 80 C 595 95, 580 110, 588 122 C 592 127, 600 124, 598 116" fill="none" stroke="url(#gardenTrunkAlt)" stroke-width="1.5" stroke-linecap="round"></path>
+        <path d="M 600 80 C 606 96, 622 108, 616 120 C 612 126, 604 123, 606 115" fill="none" stroke="url(#gardenTrunkAlt)" stroke-width="1.4" stroke-linecap="round"></path>
+
+        <!-- Upward lateral delicate sprigs -->
+        <path d="M 600 62 C 580 50, 568 34, 574 20" fill="none" stroke="#25543c" stroke-width="1.2" stroke-linecap="round"></path>
+        <path d="M 600 52 C 620 42, 632 28, 626 16" fill="none" stroke="#25543c" stroke-width="1.2" stroke-linecap="round"></path>
+
+        <!-- Center Leaves: Upper Crest -->
+        <path d="M 600 12 Q 588 4, 578 12 Q 589 19, 600 14 Z" fill="url(#leafSage)" stroke="#06120c" stroke-width="0.5"></path>
+        <path d="M 600 12 Q 612 4, 622 12 Q 611 19, 600 14 Z" fill="url(#leafEmerald)" stroke="#06120c" stroke-width="0.5"></path>
+        <circle cx="600" cy="11" r="1.6" fill="#141414" stroke="#C5A059" stroke-width="0.8"></circle>
+        <circle cx="600" cy="11" r="0.7" fill="#F4E0A5"></circle>
+
+        <!-- Center Leaves: Cascading Drooping over Footer -->
+        <path d="M 590 92 Q 572 96, 568 106 Q 580 110, 592 98 Z" fill="url(#leafEmerald)" stroke="#06120c" stroke-width="0.5"></path>
+        <path d="M 590 92 Q 578 98, 570 106" fill="none" stroke="#C5A059" stroke-width="0.4" opacity="0.8"></path>
+
+        <path d="M 610 94 Q 628 98, 632 108 Q 620 112, 608 100 Z" fill="url(#leafSage)" stroke="#06120c" stroke-width="0.5"></path>
+        <path d="M 610 94 Q 622 100, 630 108" fill="none" stroke="#C5A059" stroke-width="0.4" opacity="0.8"></path>
+
+        <path d="M 588 116 Q 576 122, 572 130 Q 584 132, 591 121 Z" fill="url(#leafDark)" stroke="#06120c" stroke-width="0.5"></path>
+        <circle cx="572" cy="130" r="1" fill="#F4E0A5"></circle>
+
+        <path d="M 616 114 Q 628 120, 631 128 Q 620 131, 614 119 Z" fill="url(#leafDark)" stroke="#06120c" stroke-width="0.5"></path>
+        <circle cx="631" cy="128" r="1" fill="#F4E0A5"></circle>
+
+        <!-- 2. LEFT INNER CLUSTER (X: 360 - 440) -->
+        <path d="M 400 80 C 395 60, 410 40, 402 18" fill="none" stroke="url(#gardenTrunk)" stroke-width="1.6" stroke-linecap="round"></path>
+        <path d="M 400 80 C 405 98, 390 114, 396 125" fill="none" stroke="url(#gardenTrunkAlt)" stroke-width="1.3" stroke-linecap="round"></path>
+        <path d="M 400 68 C 380 56, 372 42, 378 30" fill="none" stroke="#25543c" stroke-width="1" stroke-linecap="round"></path>
+
+        <!-- Left Inner Leaves -->
+        <path d="M 402 18 Q 390 12, 382 20 Q 392 26, 402 20 Z" fill="url(#leafSage)" stroke="#06120c" stroke-width="0.5"></path>
+        <path d="M 402 18 Q 414 12, 422 20 Q 412 26, 402 20 Z" fill="url(#leafEmerald)" stroke="#06120c" stroke-width="0.5"></path>
+        <circle cx="402" cy="18" r="1.4" fill="#141414" stroke="#C5A059" stroke-width="0.8"></circle>
+
+        <!-- Cascading Leaves over footer (Left Inner) -->
+        <path d="M 398 94 Q 380 98, 376 108 Q 388 112, 400 100 Z" fill="url(#leafDark)" stroke="#06120c" stroke-width="0.5"></path>
+        <path d="M 404 102 Q 420 106, 424 116 Q 412 119, 402 107 Z" fill="url(#leafEmerald)" stroke="#06120c" stroke-width="0.5"></path>
+        <path d="M 396 120 Q 386 126, 384 133 Q 394 134, 399 124 Z" fill="url(#leafSage)" stroke="#06120c" stroke-width="0.5"></path>
+        <circle cx="384" cy="133" r="0.9" fill="#F4E0A5"></circle>
+
+        <!-- 3. RIGHT INNER CLUSTER (X: 760 - 840) -->
+        <path d="M 800 80 C 805 60, 790 40, 798 18" fill="none" stroke="url(#gardenTrunk)" stroke-width="1.6" stroke-linecap="round"></path>
+        <path d="M 800 80 C 795 98, 810 114, 804 125" fill="none" stroke="url(#gardenTrunkAlt)" stroke-width="1.3" stroke-linecap="round"></path>
+        <path d="M 800 68 C 820 56, 828 42, 822 30" fill="none" stroke="#25543c" stroke-width="1" stroke-linecap="round"></path>
+
+        <!-- Right Inner Leaves -->
+        <path d="M 798 18 Q 810 12, 818 20 Q 808 26, 798 20 Z" fill="url(#leafSage)" stroke="#06120c" stroke-width="0.5"></path>
+        <path d="M 798 18 Q 786 12, 778 20 Q 788 26, 798 20 Z" fill="url(#leafEmerald)" stroke="#06120c" stroke-width="0.5"></path>
+        <circle cx="798" cy="18" r="1.4" fill="#141414" stroke="#C5A059" stroke-width="0.8"></circle>
+
+        <!-- Cascading Leaves over footer (Right Inner) -->
+        <path d="M 802 94 Q 820 98, 824 108 Q 812 112, 800 100 Z" fill="url(#leafDark)" stroke="#06120c" stroke-width="0.5"></path>
+        <path d="M 796 102 Q 780 106, 776 116 Q 788 119, 798 107 Z" fill="url(#leafEmerald)" stroke="#06120c" stroke-width="0.5"></path>
+        <path d="M 804 120 Q 814 126, 816 133 Q 806 134, 801 124 Z" fill="url(#leafSage)" stroke="#06120c" stroke-width="0.5"></path>
+        <circle cx="816" cy="133" r="0.9" fill="#F4E0A5"></circle>
+
+        <!-- 4. FAR LEFT FLANK (X: 160 - 240) -->
+        <path d="M 200 80 C 196 62, 206 44, 200 24" fill="none" stroke="url(#gardenTrunkAlt)" stroke-width="1.4" stroke-linecap="round"></path>
+        <path d="M 200 80 C 204 96, 192 110, 196 122" fill="none" stroke="url(#gardenTrunkAlt)" stroke-width="1.2" stroke-linecap="round"></path>
+        <path d="M 200 24 Q 190 18, 184 26 Q 192 31, 200 26 Z" fill="url(#leafSage)" stroke="#06120c" stroke-width="0.5"></path>
+        <path d="M 200 24 Q 210 18, 216 26 Q 208 31, 200 26 Z" fill="url(#leafDark)" stroke="#06120c" stroke-width="0.5"></path>
+        <!-- Cascading Droplet Leaf -->
+        <path d="M 197 100 Q 182 104, 180 114 Q 190 117, 198 106 Z" fill="url(#leafEmerald)" stroke="#06120c" stroke-width="0.5"></path>
+        <path d="M 196 118 Q 188 123, 186 129 Q 194 130, 198 122 Z" fill="url(#leafDark)" stroke="#06120c" stroke-width="0.5"></path>
+
+        <!-- 5. FAR RIGHT FLANK (X: 960 - 1040) -->
+        <path d="M 1000 80 C 1004 62, 994 44, 1000 24" fill="none" stroke="url(#gardenTrunkAlt)" stroke-width="1.4" stroke-linecap="round"></path>
+        <path d="M 1000 80 C 996 96, 1008 110, 1004 122" fill="none" stroke="url(#gardenTrunkAlt)" stroke-width="1.2" stroke-linecap="round"></path>
+        <path d="M 1000 24 Q 1010 18, 1016 26 Q 1008 31, 1000 26 Z" fill="url(#leafSage)" stroke="#06120c" stroke-width="0.5"></path>
+        <path d="M 1000 24 Q 990 18, 984 26 Q 992 31, 1000 26 Z" fill="url(#leafDark)" stroke="#06120c" stroke-width="0.5"></path>
+        <!-- Cascading Droplet Leaf -->
+        <path d="M 1003 100 Q 1018 104, 1020 114 Q 1010 117, 1002 106 Z" fill="url(#leafEmerald)" stroke="#06120c" stroke-width="0.5"></path>
+        <path d="M 1004 118 Q 1012 123, 1014 129 Q 1006 130, 1002 122 Z" fill="url(#leafDark)" stroke="#06120c" stroke-width="0.5"></path>
+
+        <!-- 6. HORIZONTAL RUNNERS & DELICATE SPROUTS ALONG THE FRIEZE (Crossing above & below line) -->
+        <path d="M 50 78 C 150 70, 250 86, 350 74 C 450 84, 550 72, 650 82 C 750 72, 850 85, 950 74 C 1050 84, 1150 75, 1200 80" fill="none" stroke="#173e2a" stroke-width="1"></path>
+        <path d="M 0 82 C 100 88, 200 74, 300 84 C 400 75, 500 87, 600 76 C 700 86, 800 75, 900 85 C 1000 76, 1100 86, 1200 80" fill="none" stroke="url(#goldVein)" stroke-width="0.4" stroke-dasharray="4 6" opacity="0.7"></path>
+
+        <!-- Small delicate leaves along the runner line hanging downward onto the footer border -->
+        <!-- X: 120 -->
+        <path d="M 120 80 Q 112 90, 116 97 Q 124 93, 122 81 Z" fill="url(#leafDark)" stroke="#06120c" stroke-width="0.4"></path>
+        <!-- X: 290 -->
+        <path d="M 290 81 Q 282 92, 286 99 Q 294 95, 292 82 Z" fill="url(#leafEmerald)" stroke="#06120c" stroke-width="0.4"></path>
+        <!-- X: 490 -->
+        <path d="M 490 79 Q 482 90, 486 98 Q 494 94, 492 80 Z" fill="url(#leafSage)" stroke="#06120c" stroke-width="0.4"></path>
+        <circle cx="486" cy="98" r="0.8" fill="#F4E0A5"></circle>
+        <!-- X: 710 -->
+        <path d="M 710 79 Q 718 90, 714 98 Q 706 94, 708 80 Z" fill="url(#leafSage)" stroke="#06120c" stroke-width="0.4"></path>
+        <circle cx="714" cy="98" r="0.8" fill="#F4E0A5"></circle>
+        <!-- X: 910 -->
+        <path d="M 910 81 Q 918 92, 914 99 Q 906 95, 908 82 Z" fill="url(#leafEmerald)" stroke="#06120c" stroke-width="0.4"></path>
+        <!-- X: 1080 -->
+        <path d="M 1080 80 Q 1088 90, 1084 97 Q 1076 93, 1078 81 Z" fill="url(#leafDark)" stroke="#06120c" stroke-width="0.4"></path>
+
+        <!-- DELICATE ART DECO JEWELS / ANCHORING STUDS -->
+        <circle cx="600" cy="80" r="2.5" fill="#141414" stroke="#C5A059" stroke-width="1"></circle>
+        <circle cx="600" cy="80" r="0.9" fill="#F4E0A5"></circle>
+        <circle cx="400" cy="80" r="2" fill="#141414" stroke="#C5A059" stroke-width="0.8"></circle>
+        <circle cx="800" cy="80" r="2" fill="#141414" stroke="#C5A059" stroke-width="0.8"></circle>
+        <circle cx="200" cy="80" r="1.6" fill="#141414" stroke="#C5A059" stroke-width="0.7"></circle>
+        <circle cx="1000" cy="80" r="1.6" fill="#141414" stroke="#C5A059" stroke-width="0.7"></circle>
+      </svg>
+    </div>
+  </div>

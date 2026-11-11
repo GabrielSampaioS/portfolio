@@ -1,38 +1,59 @@
+{% assign ui = site.data.ui %}
 {% assign skills = site.data.skills %}
+{% assign principais = skills | where: "tier", "principal" %}
+{% assign complementares = skills | where: "tier", "complementar" %}
 <section id="skills" class="py-20 border-b border-neutral-800 space-y-12">
 
   <div class="flex flex-wrap items-end justify-between gap-4">
     <div class="space-y-2">
       <div class="inline-flex items-center gap-2 font-mono text-xs text-white">
-        <span class="w-1.5 h-1.5 bg-white"></span>
-        <span>SYSTEM SPECIFICATIONS // {{ skills | size }} CANONICAL MODULES</span>
+        <span class="w-1.5 h-1.5 bg-[#C5A059]"></span>
+        <span>{{ ui.skills.kicker }}</span>
       </div>
-      <h2 class="font-headline text-3xl sm:text-4xl font-bold uppercase tracking-wider text-white">Technical Competencies &amp; Systems Stack</h2>
+      <h2 class="font-headline text-3xl sm:text-4xl font-bold uppercase tracking-wider text-white">{{ ui.skills.title }}</h2>
     </div>
-    <span class="font-mono text-xs text-neutral-400 tracking-widest uppercase">NO ARBITRARY PERCENTAGES</span>
+    <span class="font-mono text-xs text-neutral-300 tracking-widest uppercase">{{ ui.skills.note }}</span>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    {% for s in skills %}
-    <div class="bw-frame bg-[#171717] p-6 space-y-4">
-      <div class="flex items-center justify-between border-b border-neutral-800 pb-3 font-mono text-xs">
-        <div class="flex items-center gap-3">
-          <div class="w-8 h-8 border border-neutral-600 bg-black flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-white text-base">{{ s.icon }}</span>
+  {% assign groups = "principal,complementar" | split: "," %}
+  {% for g in groups %}
+    {% if g == "principal" %}{% assign list = principais %}{% assign heading = ui.skills.principal_heading %}{% else %}{% assign list = complementares %}{% assign heading = ui.skills.complementar_heading %}{% endif %}
+    {% if list.size > 0 %}
+    <div class="space-y-6">
+      <h3 class="font-mono text-xs uppercase tracking-widest font-bold {% if g == 'principal' %}text-[#F4E0A5]{% else %}text-neutral-200{% endif %} flex items-center gap-2 border-b border-neutral-800 pb-3">
+        <span class="w-2 h-2 rotate-45 {% if g == 'principal' %}bg-[#C5A059]{% else %}bg-neutral-500{% endif %}" aria-hidden="true"></span>{{ heading }}
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for s in list %}
+        <div class="bw-frame bg-[#171717] p-6 space-y-4 {% if g == 'principal' %}deco-stepped-corner{% endif %}">
+          <div class="flex items-center justify-between gap-3 border-b border-neutral-800 pb-3 font-mono text-xs">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 border border-neutral-600 bg-black flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[#F4E0A5] text-base" aria-hidden="true">{{ s.icon }}</span>
+              </div>
+              <div>
+                <span class="text-white font-bold uppercase block">{{ s.title }}</span>
+                <span class="text-[11px] text-neutral-300 uppercase tracking-widest">{{ s.subtitle }}</span>
+              </div>
+            </div>
+            <span class="text-neutral-300 font-mono text-[11px] text-right">{{ s.tag }}</span>
           </div>
-          <div>
-            <span class="text-white font-bold uppercase block">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }} // {{ s.title }}</span>
-            <span class="text-[9px] text-neutral-400 uppercase tracking-widest">{{ s.subtitle }}</span>
+          <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
+            {% for item in s.items %}
+            <span class="px-2.5 py-1 bg-black border border-neutral-700 text-white">{{ item }}</span>
+            {% endfor %}
           </div>
+          {% if s.used_in %}
+          <p class="font-body text-xs text-neutral-300 leading-relaxed border-t border-neutral-800 pt-3"><span class="font-mono text-[11px] uppercase tracking-wider text-[#C5A059]">{{ ui.skills.used_in }}</span> {{ s.used_in | join: ", " }}</p>
+          {% endif %}
         </div>
-        <span class="text-neutral-500 font-mono text-[10px]">{{ s.tag }}</span>
-      </div>
-      <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
-        {% for item in s.items %}
-        <span class="px-2.5 py-1 bg-black border border-neutral-700 {% if forloop.index <= 2 %}text-white{% elsif forloop.index == 3 %}text-[#F2F0EB]{% else %}text-neutral-400{% endif %}">{{ item }}</span>
         {% endfor %}
       </div>
     </div>
-    {% endfor %}
-  </div>
+    {% endif %}
+  {% endfor %}
+
+  {% if site.data.profile.studying %}
+  <p class="font-mono text-xs text-neutral-200 border border-dashed border-neutral-600 p-4 leading-relaxed"><span class="text-[#F4E0A5] font-bold uppercase tracking-wider">{{ ui.skills.studying }}</span> {{ site.data.profile.studying | join: " • " }}</p>
+  {% endif %}
 </section>

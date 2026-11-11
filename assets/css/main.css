@@ -1,112 +1,232 @@
-/* Tokens do design "Minimalist Black & White Art Deco" */
+/* ==========================================================================
+   Portfólio Gabriel Sampaio — "Art Déco monocromático" com painel de elevador.
+   Estilos que o Tailwind (CDN) não cobre: texturas, céu de tempestade,
+   molduras e a navegação em latão. Cores como variáveis para facilitar ajustes.
+   ========================================================================== */
 :root {
   --bw-black: #000000;
   --bw-charcoal: #171717;
   --bw-white: #FFFFFF;
   --bw-offwhite: #F2F0EB;
-  --bw-gray-1: #737373;
   --bw-gray-2: #404040;
   --bw-gray-3: #262626;
+  --brass: #C5A059;
+  --brass-light: #F4E0A5;
+  --brass-pale: #FFF2D1;
 }
 
-::selection {
-  background-color: var(--bw-white);
-  color: var(--bw-black);
+::selection { background-color: #FFFFFF; color: #000000; }
+
+html { scroll-padding-top: 9rem; }
+@media (min-width: 768px) { html { scroll-padding-top: 6.5rem; } }
+
+/* ---------- Acessibilidade ---------- */
+:where(a, button, input, textarea, select, canvas, [tabindex]):focus-visible {
+  outline: 2px solid var(--brass-light);
+  outline-offset: 3px;
+}
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 100;
+  background: #FFFFFF; color: #000000; padding: .75rem 1rem;
+  font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .1em;
+}
+.skip-link:focus { left: 1rem; top: 1rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
 }
 
-/* Moldura Art Deco: borda fina + cantos em degrau */
+/* ---------- Moldura com textura de parede preta ---------- */
 .bw-frame {
-  border: 1px solid var(--bw-gray-2);
+  border: 1px solid #383838;
+  outline: 1px solid rgba(255, 255, 255, 0.08);
+  outline-offset: -3px;
   position: relative;
+  background-color: #121212 !important;
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.06) 0%, transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.04) 0%, transparent 50%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.025) 0px, rgba(255, 255, 255, 0.025) 1px, transparent 1px, transparent 3px),
+    repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.7) 0px, rgba(0, 0, 0, 0.7) 1.5px, transparent 1.5px, transparent 4px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 5px) !important;
+  background-size: 100% 100%, 100% 100%, 6px 6px, 100% 100%, 100% 100%, 100% 100% !important;
+  box-shadow:
+    0 10px 32px rgba(0, 0, 0, 0.95),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.9),
+    inset 1px 0 2px rgba(255, 255, 255, 0.06),
+    inset -1px 0 2px rgba(0, 0, 0, 0.8),
+    0 0 0 1px #222222;
 }
 .bw-frame::before,
 .bw-frame::after {
   content: '';
   position: absolute;
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  z-index: 2;
+}
+.bw-frame::before { top: -2px; left: -2px; border-top: 2px solid #FFFFFF; border-left: 2px solid #FFFFFF; }
+.bw-frame::after { bottom: -2px; right: -2px; border-bottom: 2px solid #FFFFFF; border-right: 2px solid #FFFFFF; }
+
+/* Cantos em latão (declarado depois para vencer .bw-frame) */
+.deco-stepped-corner::before,
+.deco-stepped-corner::after { width: 14px; height: 14px; }
+.deco-stepped-corner::before { top: -3px; left: -3px; border-top: 2px solid var(--brass); border-left: 2px solid var(--brass); }
+.deco-stepped-corner::after { bottom: -3px; right: -3px; border-bottom: 2px solid var(--brass); border-right: 2px solid var(--brass); }
+
+.deco-fluted-line {
+  background: repeating-linear-gradient(90deg, var(--brass) 0px, var(--brass) 2px, transparent 2px, transparent 6px);
+  height: 1px;
+  opacity: 0.75;
+}
+.cadence-rule {
+  background: repeating-linear-gradient(90deg, #525252 0px, #525252 4px, transparent 4px, transparent 8px);
+  height: 1px;
+  opacity: 0.6;
+}
+
+/* ---------- Céu de tempestade ----------
+   O véu escuro (::before) garante contraste do texto sobre as nuvens mais claras. */
+.monochrome-canvas {
+  background-color: #030406 !important;
+  background-image:
+    radial-gradient(ellipse 700px 380px at 85% 8%, rgba(68, 74, 82, 0.95) 0%, rgba(42, 46, 52, 0.85) 35%, rgba(18, 20, 24, 0.6) 65%, transparent 85%),
+    radial-gradient(circle 280px at 78% 6%, rgba(85, 92, 102, 0.8) 0%, transparent 60%),
+    radial-gradient(ellipse 650px 360px at 12% 14%, rgba(62, 68, 76, 0.95) 0%, rgba(38, 42, 48, 0.85) 40%, rgba(16, 18, 22, 0.6) 70%, transparent 85%),
+    radial-gradient(circle 260px at 18% 10%, rgba(80, 88, 98, 0.75) 0%, transparent 55%),
+    radial-gradient(ellipse 850px 420px at 48% 34%, rgba(55, 60, 68, 0.9) 0%, rgba(32, 36, 42, 0.8) 40%, rgba(14, 16, 18, 0.5) 75%, transparent 85%),
+    radial-gradient(circle 320px at 40% 30%, rgba(75, 82, 92, 0.75) 0%, transparent 60%),
+    radial-gradient(circle 340px at 58% 32%, rgba(70, 78, 88, 0.7) 0%, transparent 60%),
+    radial-gradient(ellipse 750px 380px at 82% 52%, rgba(58, 64, 72, 0.92) 0%, rgba(34, 38, 44, 0.8) 45%, rgba(15, 17, 20, 0.55) 75%, transparent 85%),
+    radial-gradient(circle 290px at 86% 48%, rgba(78, 86, 96, 0.75) 0%, transparent 60%),
+    radial-gradient(ellipse 800px 420px at 15% 70%, rgba(56, 62, 70, 0.95) 0%, rgba(32, 36, 42, 0.8) 40%, rgba(14, 16, 19, 0.5) 75%, transparent 85%),
+    radial-gradient(circle 300px at 20% 66%, rgba(74, 82, 92, 0.75) 0%, transparent 60%),
+    radial-gradient(ellipse 900px 400px at 80% 88%, rgba(50, 56, 64, 0.9) 0%, rgba(28, 32, 38, 0.8) 45%, rgba(12, 14, 16, 0.5) 80%, transparent 90%),
+    radial-gradient(ellipse 850px 380px at 30% 90%, rgba(48, 54, 62, 0.9) 0%, rgba(26, 30, 36, 0.8) 45%, transparent 85%),
+    linear-gradient(180deg, #020305 0%, #07090d 25%, #0c0e13 50%, #08090d 75%, #020305 100%) !important;
+  background-size: 100% 100% !important;
+  background-attachment: fixed !important;
+}
+.monochrome-canvas::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  z-index: 0;
+}
+.monochrome-canvas > main,
+.monochrome-canvas > footer,
+.monochrome-canvas > .site-layer { position: relative; z-index: 1; }
+
+/* ---------- Painel de elevador (header) ---------- */
+.elevator-console-bar {
+  background: linear-gradient(180deg, #141414 0%, #0a0a0a 60%, #050505 100%);
+  border-bottom: 2px solid #26231a;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(197, 160, 89, 0.35);
+  position: sticky;
+}
+.elevator-console-bar::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 5%, var(--brass) 50%, transparent 95%);
+  opacity: 0.6;
   pointer-events: none;
 }
-.bw-frame::before {
-  top: -2px;
-  left: -2px;
-  border-top: 2px solid var(--bw-white);
-  border-left: 2px solid var(--bw-white);
+.elevator-dial-indicator {
+  background: radial-gradient(circle at 50% 50%, #1f1b13 0%, #0d0c09 85%);
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.9), 0 0 10px rgba(197, 160, 89, 0.12);
 }
-.bw-frame::after {
-  bottom: -2px;
-  right: -2px;
-  border-bottom: 2px solid var(--bw-white);
-  border-right: 2px solid var(--bw-white);
+.floor-jewel {
+  width: 5px; height: 5px; border-radius: 9999px;
+  background-color: #6b6350;
+  transition: all .25s ease;
+}
+.elevator-floor-btn,
+.nav-chip {
+  position: relative;
+  transition: color .25s, border-color .25s, background .25s, box-shadow .25s;
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  background: linear-gradient(180deg, #1a1917 0%, #100f0d 100%);
+  color: #BDBDBD;
+}
+.elevator-floor-btn:hover,
+.nav-chip:hover {
+  border-color: rgba(197, 160, 89, 0.7);
+  color: #F2F0EB;
+  box-shadow: 0 0 10px rgba(197, 160, 89, 0.15);
+}
+.elevator-floor-btn.is-active,
+.nav-chip.is-active {
+  border-color: var(--brass);
+  background: linear-gradient(180deg, #2a2417 0%, #15120a 100%);
+  color: var(--brass-pale);
+  box-shadow: 0 0 12px rgba(197, 160, 89, 0.3), inset 0 1px 2px rgba(255, 235, 185, 0.35);
+}
+.elevator-floor-btn.is-active .floor-jewel {
+  background-color: var(--brass);
+  box-shadow: 0 0 8px var(--brass), 0 0 12px rgba(244, 224, 165, 0.6);
+}
+/* Chip do celular: área de toque mínima de 44px */
+.nav-chip { min-height: 44px; display: inline-flex; align-items: center; }
+
+.brass-cta {
+  border: 1px solid var(--brass);
+  background: linear-gradient(90deg, #C5A059, #D8B46E, #C5A059);
+  color: #000;
+  box-shadow: 0 0 12px rgba(197, 160, 89, 0.35);
+}
+.brass-cta:hover { filter: brightness(1.1); }
+
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ---------- Blocos de código/HTTP nas páginas de projeto ---------- */
+.code-block {
+  background: #0A0A0A;
+  border: 1px solid #383838;
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #E5E5E5;
+  white-space: pre;
 }
 
-/* Grade arquitetônica monocromática */
-.monochrome-canvas {
-  background-color: var(--bw-black);
-  background-image:
-    radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.04) 0%, transparent 45%),
-    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 100% 100%, 80px 80px, 80px 80px;
-}
-
-/* Divisor de cadência */
-.cadence-rule {
-  background: repeating-linear-gradient(
-    90deg,
-    var(--bw-white),
-    var(--bw-white) 2px,
-    transparent 2px,
-    transparent 10px
-  );
-  height: 2px;
-  opacity: 0.4;
-}
-
-/* Corpo em Markdown das páginas de projeto (_projetos/*.md) */
+/* ---------- Corpo em Markdown das páginas de projeto ---------- */
 .project-body { color: #D4D4D4; font-size: 15px; line-height: 1.75; }
 .project-body > * + * { margin-top: 1.25rem; }
 .project-body h2 {
   font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.5rem;
-  color: var(--bw-white); text-transform: uppercase; letter-spacing: 0.04em;
+  color: #FFFFFF; text-transform: uppercase; letter-spacing: 0.04em;
   border-bottom: 1px solid var(--bw-gray-3); padding-bottom: 0.5rem; margin-top: 2.5rem;
 }
-.project-body h3 {
-  font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.15rem;
-  color: var(--bw-white); margin-top: 2rem;
-}
-.project-body a { color: var(--bw-white); text-decoration: underline; text-underline-offset: 3px; }
+.project-body h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.15rem; color: #FFFFFF; margin-top: 2rem; }
+.project-body a { color: #FFFFFF; text-decoration: underline; text-underline-offset: 3px; }
 .project-body ul { list-style: square; padding-left: 1.4rem; }
 .project-body ol { list-style: decimal; padding-left: 1.4rem; }
 .project-body li + li { margin-top: 0.4rem; }
-.project-body strong { color: var(--bw-white); }
-.project-body code {
-  font-family: 'JetBrains Mono', monospace; font-size: 0.85em;
-  background: var(--bw-charcoal); border: 1px solid var(--bw-gray-2); padding: 0.1em 0.4em;
-}
-.project-body pre {
-  background: #0A0A0A; border: 1px solid var(--bw-gray-2); padding: 1rem; overflow-x: auto;
-}
+.project-body strong { color: #FFFFFF; }
+.project-body code { font-family: 'JetBrains Mono', monospace; font-size: 0.85em; background: var(--bw-charcoal); border: 1px solid var(--bw-gray-2); padding: 0.1em 0.4em; }
+.project-body pre { background: #0A0A0A; border: 1px solid var(--bw-gray-2); padding: 1rem; overflow-x: auto; }
 .project-body pre code { background: none; border: 0; padding: 0; }
-.project-body blockquote { border-left: 2px solid var(--bw-white); padding-left: 1rem; color: var(--bw-gray-1); }
+.project-body blockquote { border-left: 2px solid #FFFFFF; padding-left: 1rem; color: #A3A3A3; }
 .project-body img { max-width: 100%; border: 1px solid var(--bw-gray-2); }
 .project-body table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
 .project-body th, .project-body td { border: 1px solid var(--bw-gray-2); padding: 0.5rem 0.75rem; text-align: left; }
 
-/* Âncoras não ficam escondidas atrás do header fixo (celular tem a barra de atalhos) */
-html { scroll-padding-top: 8.5rem; }
-@media (min-width: 768px) { html { scroll-padding-top: 6.5rem; } }
-
-/* Item ativo da navegação (definido por assets/js/nav.js) */
-.nav-link.is-active { color: var(--bw-white); box-shadow: 0 2px 0 0 var(--bw-white); padding-bottom: 4px; }
-.nav-chip { transition: background-color .15s, color .15s, border-color .15s; }
-.nav-chip.is-active { background: var(--bw-white); color: var(--bw-black); border-color: var(--bw-white); font-weight: 700; }
-
-/* Esconde a barra de rolagem dos atalhos do celular */
-.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
-.no-scrollbar::-webkit-scrollbar { display: none; }
-
-/* Material Symbols */
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-}
+/* ---------- Ícones ---------- */
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }

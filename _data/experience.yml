@@ -2,7 +2,7 @@
 - role: Auxiliar de Engenharia
   company: Clima Core
   period: "Setembro de 2026 – Presente"
-  tag: "ENGINEERING & SENSORS"
+  tag: "ENGENHARIA & SENSORES"
   icon: sensors
   current: true
   bullets:
@@ -15,7 +15,7 @@
 - role: Assistente de Suporte Técnico Júnior
   company: BoerSoft Soluções em Sistemas
   period: "Outubro de 2022 – Maio de 2026"
-  tag: "SYSTEMS & SQL SERVER"
+  tag: "SISTEMAS & SQL SERVER"
   icon: terminal
   bullets:
     - "Atendimento e resolução de incidentes em sistemas corporativos, garantindo o cumprimento de SLA."
@@ -23,11 +23,17 @@
     - "Modelagem e manutenção de estruturas relacionais em SQL Server."
     - "Desenvolvimento e manutenção de procedures para automação de processos e consultas."
     - "Colaboração com equipes de desenvolvimento na identificação e correção de falhas sistêmicas."
+  # CASO REAL (opcional, aparece como um bloco "Caso real" no cargo). Descomente e preencha com um
+  # problema que você de fato resolveu, sem dados confidenciais da empresa. Exemplo de estrutura:
+  # case:
+  #   problem: "O que estava errado (sintoma, impacto, frequência)."
+  #   investigation: "Como você investigou (logs, consultas SQL, reprodução, hipóteses descartadas)."
+  #   solution: "O que foi feito e o resultado (correção, procedure, orientação ao cliente)."
 
 - role: Assistente de Documentação Técnica
   company: GLP Laboratórios
   period: "Maio de 2022 – Outubro de 2022"
-  tag: "AUTOMATION & DOCUMENTATION"
+  tag: "AUTOMAÇÃO & DOCUMENTAÇÃO"
   icon: description
   bullets:
     - "Padronização e validação de planilhas de cálculo utilizadas em análises laboratoriais, garantindo rastreabilidade e conformidade com requisitos normativos."
@@ -38,7 +44,7 @@
 - role: Técnico de Laboratório
   company: GLP Laboratórios
   period: "Outubro de 2020 – Junho de 2022"
-  tag: "SPECTROPHOTOMETRY & QUALITY"
+  tag: "ESPECTROFOTOMETRIA & QUALIDADE"
   icon: science
   bullets:
     - "Realização de ensaios físico-químicos e espectrofotométricos (UV/Vis) em amostras ambientais e industriais."
@@ -49,7 +55,7 @@
 - role: Auxiliar de Laboratório
   company: GLP Laboratórios
   period: "Fevereiro de 2020 – Outubro de 2020"
-  tag: "LABORATORY OPERATIONS"
+  tag: "OPERAÇÕES DE LABORATÓRIO"
   icon: biotech
   bullets:
     - "Preparação de amostras, reagentes e materiais utilizados em análises laboratoriais."
@@ -60,7 +66,7 @@
 - role: Estagiário de Laboratório
   company: GLP Laboratórios
   period: "Outubro de 2019 – Janeiro de 2020"
-  tag: "LABORATORY INTERNSHIP"
+  tag: "ESTÁGIO EM LABORATÓRIO"
   icon: tune
   bullets:
     - "Suporte às atividades laboratoriais, incluindo preparo de soluções, controle de materiais e manutenção básica de equipamentos."

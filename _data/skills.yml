@@ -1,53 +1,92 @@
-- title: LANGUAGES
-  subtitle: SYNTAX & LOGIC
-  tag: CORE
-  icon: code
-  items: [JavaScript (ES6+), TypeScript, C (Engineering), SQL, HTML5 / CSS3]
+# Competências por nível de ênfase:
+#   tier: principal      -> foco da candidatura (Backend)
+#   tier: complementar   -> conhecimentos de apoio
+# used_in: onde há evidência (projeto ou experiência). Só liste o que existe de fato nos repositórios/experiência.
 
-- title: RUNTIMES & APIS
-  subtitle: SERVICES & PROTOCOLS
+- title: LINGUAGENS
+  subtitle: SINTAXE & LÓGICA
+  tag: NÚCLEO
+  icon: code
+  tier: principal
+  items: [TypeScript, JavaScript (ES6+), SQL]
+  used_in: [LedgerFlow, Cinema Reservation System]
+
+- title: RUNTIME & APIs
+  subtitle: SERVIÇOS & PROTOCOLOS
   tag: BACKEND
   icon: dns
-  items: [Node.js, Express, RESTful APIs, Custom Middleware]
+  tier: principal
+  items: [Node.js, Express, APIs REST, Middlewares, Autenticação JWT]
+  used_in: [LedgerFlow, Cinema Reservation System]
 
-- title: DATABASES & STORAGE
-  subtitle: PERSISTENCE & SCHEMAS
-  tag: DATA
+- title: BANCOS DE DADOS
+  subtitle: PERSISTÊNCIA & MODELAGEM
+  tag: DADOS
   icon: database
-  items: [PostgreSQL, MongoDB, Redis (Cache), Prisma ORM]
+  tier: principal
+  items: [PostgreSQL, MongoDB, Prisma ORM, Mongoose, SQL Server]
+  used_in: [Cinema (PostgreSQL + Prisma), LedgerFlow (MongoDB), BoerSoft (SQL Server)]
 
-- title: DEVOPS & INFRA
-  subtitle: PIPELINES & CONTAINERS
-  tag: INFRA
-  icon: developer_board
-  items: [Docker, Git / GitHub, Linux / Bash, GitHub Actions]
-
-- title: ARCHITECTURE
-  subtitle: SYSTEM PATTERNS
+- title: ARQUITETURA
+  subtitle: PADRÕES DE SISTEMA
   tag: DESIGN
   icon: account_tree
-  items: [Clean Architecture, SOLID Principles, Layered Pattern, MVC Structure]
+  tier: principal
+  items: [Clean Architecture, DDD, Event Sourcing, Repository & DTO, Strategy & Factory, SOLID]
+  used_in: [LedgerFlow, Cinema Reservation System]
 
-- title: CLIENT & MOBILE
-  subtitle: CROSS-PLATFORM APPS
-  tag: CLIENT
-  icon: devices
-  items: [Flutter, Dart, Responsive UI, State Management]
-
-- title: VERIFICATION
-  subtitle: TESTING & QA
-  tag: QUALITY
+- title: TESTES & QUALIDADE
+  subtitle: VERIFICAÇÃO
+  tag: QUALIDADE
   icon: rule
-  items: [Jest, Unit Testing, Integration Tests, Postman]
+  tier: principal
+  items: [Testes E2E, Testes de integração, Testes unitários, Node.js Test Runner, Supertest, ESLint, Postman]
+  used_in: [LedgerFlow (unit, integração e E2E), Cinema (E2E)]
 
-- title: PRODUCTION OPS
-  subtitle: SLA & SUPPORT
-  tag: OPS
+- title: DEVOPS & INFRA
+  subtitle: PIPELINES & CONTÊINERES
+  tag: INFRA
+  icon: developer_board
+  tier: principal
+  items: [Docker, Docker Compose, GitHub Actions (CI), Nginx, Git / GitHub, Linux]
+  used_in: [LedgerFlow (CI e Nginx com 2 instâncias), Cinema (Docker Compose)]
+
+- title: PRODUÇÃO & SUPORTE
+  subtitle: SLA & IMPLANTAÇÃO
+  tag: OPERAÇÃO
   icon: terminal
-  items: [Technical Support, Software Deployments, Requirements Analysis, Bug Triage]
+  tier: principal
+  items: [Suporte técnico, Implantação de sistemas, Levantamento de requisitos, Triagem de falhas]
+  used_in: [BoerSoft Soluções em Sistemas]
 
-- title: COMPUTER ENG
-  subtitle: HARDWARE & THEORY
-  tag: THEORY
+- title: MOBILE
+  subtitle: APLICATIVOS MULTIPLATAFORMA
+  tag: COMPLEMENTAR
+  icon: devices
+  tier: complementar
+  items: [Flutter, Dart, Provider, Firebase (Firestore e Auth)]
+  used_in: [Gestão e Rastreabilidade de Ativos]
+
+- title: WEB FRONT-END
+  subtitle: INTERFACES
+  tag: COMPLEMENTAR
+  icon: web
+  tier: complementar
+  items: [HTML5, CSS3, JavaScript, Design responsivo]
+  used_in: [Máximo Motorsport]
+
+- title: IA & DADOS
+  subtitle: EM ESTUDO
+  tag: COMPLEMENTAR
+  icon: neurology
+  tier: complementar
+  items: [Python, LangChain, Ollama, ChromaDB, RAG]
+  used_in: [Local RAG]
+
+- title: FUNDAMENTOS
+  subtitle: TEORIA DA COMPUTAÇÃO
+  tag: COMPLEMENTAR
   icon: memory
-  items: [Data Structures, Algorithms, Computer Architecture, Operating Systems]
+  tier: complementar
+  items: [Estruturas de dados, Algoritmos, C++, Arquitetura de computadores, Sistemas operacionais]
+  used_in: [Graduação (UNIVESP), LeetCode]
