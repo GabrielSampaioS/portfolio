@@ -1,6 +1,8 @@
 ---
 layout: default
 ---
+{% assign ui = site.data.ui %}
+{% assign pu = ui.project %}
 {% assign all = site.projetos | sort: "order" %}
 {% for p in all %}{% if p.url == page.url %}{% assign idx = forloop.index0 %}{% assign pos = forloop.index %}{% endif %}{% endfor %}
 {% if idx > 0 %}{% assign prev_i = idx | minus: 1 %}{% assign prev = all[prev_i] %}{% endif %}
@@ -10,27 +12,27 @@ layout: default
 <article class="py-16 md:py-20 space-y-12">
 
   <div class="flex flex-wrap items-center justify-between gap-4 border-b border-neutral-800 pb-4 font-mono text-xs">
-    <a href="{{ '/' | relative_url }}#projects" class="text-neutral-400 hover:text-white transition uppercase tracking-widest flex items-center gap-2">
-      <span class="material-symbols-outlined text-sm">arrow_back</span> Back to Selected Systems
+    <a href="{{ '/' | relative_url }}#projects" class="text-neutral-200 hover:text-[#F4E0A5] transition uppercase tracking-widest flex items-center gap-2 min-h-[44px]">
+      <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_back</span> {{ pu.back }}
     </a>
-    <span class="text-neutral-400 uppercase tracking-widest">SYS REF // {% if pos < 10 %}0{% endif %}{{ pos }} / {% if all.size < 10 %}0{% endif %}{{ all.size }}</span>
+    <span class="text-neutral-300 uppercase tracking-widest">{{ pu.ref }} // {% if pos < 10 %}0{% endif %}{{ pos }} / {% if all.size < 10 %}0{% endif %}{{ all.size }}</span>
   </div>
 
   <header class="space-y-5 max-w-4xl">
-    <span class="font-mono text-xs text-white uppercase tracking-widest font-bold block">{{ page.modal.category }}</span>
+    <span class="font-mono text-xs text-[#F4E0A5] uppercase tracking-widest font-bold block">{{ page.modal.category }}</span>
     <h1 class="font-display text-4xl sm:text-6xl leading-[1.05] font-bold text-white tracking-tight uppercase">{{ page.title }}</h1>
-    <p class="font-body text-lg text-neutral-400 leading-relaxed">{{ page.summary }}</p>
+    <p class="font-body text-lg text-neutral-300 leading-relaxed">{{ page.summary }}</p>
 
     <div class="flex flex-wrap items-center gap-3 pt-2">
-      <span class="font-mono text-[10px] uppercase tracking-widest bg-[#171717] text-white px-2.5 py-1 border border-neutral-700">{{ page.badge }}</span>
+      <span class="font-mono text-[11px] uppercase tracking-widest bg-[#171717] text-neutral-100 px-2.5 py-1 border border-neutral-600">{{ page.badge }}</span>
       {% if page.repo %}
-      <a href="{{ page.repo }}" target="_blank" rel="noopener noreferrer" class="px-5 py-2 bg-white text-black font-mono text-xs uppercase tracking-widest font-bold hover:bg-neutral-200 transition border border-white flex items-center gap-2">
-        Repository <span class="material-symbols-outlined text-sm">open_in_new</span>
+      <a href="{{ page.repo }}" target="_blank" rel="noopener noreferrer" class="brass-cta px-5 py-2 min-h-[44px] font-mono text-xs uppercase tracking-widest font-bold transition flex items-center gap-2">
+        {{ pu.repo }} <span class="material-symbols-outlined text-sm" aria-hidden="true">open_in_new</span>
       </a>
       {% endif %}
       {% if page.demo %}
-      <a href="{{ page.demo }}" target="_blank" rel="noopener noreferrer" class="px-5 py-2 border border-neutral-600 text-white font-mono text-xs uppercase tracking-widest font-semibold hover:bg-[#171717] transition flex items-center gap-2">
-        Live Demo <span class="material-symbols-outlined text-sm">open_in_new</span>
+      <a href="{{ page.demo }}" target="_blank" rel="noopener noreferrer" class="px-5 py-2 min-h-[44px] border border-neutral-500 text-white font-mono text-xs uppercase tracking-widest font-semibold hover:border-[#C5A059] hover:bg-[#171717] transition flex items-center gap-2">
+        {{ pu.demo }} <span class="material-symbols-outlined text-sm" aria-hidden="true">open_in_new</span>
       </a>
       {% endif %}
     </div>
@@ -40,19 +42,84 @@ layout: default
 
     <div class="lg:col-span-8 space-y-8">
       <section class="bw-frame bg-[#171717] p-6 sm:p-8 space-y-3">
-        <h2 class="font-mono text-xs uppercase tracking-wider text-white font-bold">System Scope &amp; Objective</h2>
-        <p class="font-body text-sm sm:text-base text-neutral-300 leading-relaxed">{{ page.modal.description }}</p>
+        <h2 class="font-mono text-xs uppercase tracking-wider text-[#F4E0A5] font-bold">{{ pu.scope }}</h2>
+        <p class="font-body text-sm sm:text-base text-neutral-200 leading-relaxed">{{ page.modal.description }}</p>
       </section>
 
       <section class="bw-frame bg-[#171717] p-6 sm:p-8 space-y-3">
-        <h2 class="font-mono text-xs uppercase tracking-wider text-white font-bold">Backend Architecture Solution</h2>
-        <p class="font-body text-sm sm:text-base text-neutral-300 leading-relaxed">{{ page.modal.solution }}</p>
+        <h2 class="font-mono text-xs uppercase tracking-wider text-[#F4E0A5] font-bold">{{ pu.solution }}</h2>
+        <p class="font-body text-sm sm:text-base text-neutral-200 leading-relaxed">{{ page.modal.solution }}</p>
       </section>
 
-      <section class="border-l-2 border-white pl-5 space-y-2">
-        <h2 class="font-mono text-[10px] text-white uppercase tracking-wider font-semibold">Architectural Highlight</h2>
+      <section class="border-l-2 border-[#C5A059] pl-5 space-y-2">
+        <h2 class="font-mono text-[11px] text-[#F4E0A5] uppercase tracking-wider font-semibold">{{ pu.highlight }}</h2>
         <p class="font-body text-sm sm:text-base text-[#F2F0EB] leading-relaxed">{{ page.highlight }}</p>
       </section>
+
+      {% if page.layers %}
+      <section class="bw-frame bg-[#171717] p-6 sm:p-8 space-y-4">
+        <h2 class="font-mono text-xs uppercase tracking-wider text-[#F4E0A5] font-bold">{{ pu.layers }}</h2>
+        <ol class="space-y-2 font-mono text-xs">
+          {% for l in page.layers %}
+          <li class="flex gap-3 border border-neutral-700 bg-black p-3">
+            <span class="text-[#C5A059] font-bold shrink-0">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+            <span><strong class="text-white">{{ l.name }}</strong><span class="text-neutral-300"> — {{ l.text }}</span></span>
+          </li>
+          {% endfor %}
+        </ol>
+      </section>
+      {% endif %}
+
+      {% if page.decisions %}
+      <section class="space-y-4">
+        <h2 class="font-mono text-xs uppercase tracking-wider text-[#F4E0A5] font-bold">{{ pu.decisions }}</h2>
+        {% for d in page.decisions %}
+        <div class="bw-frame bg-[#171717] p-6 space-y-3">
+          <h3 class="font-headline text-lg font-bold text-white">{{ d.title }}</h3>
+          <dl class="space-y-2 font-body text-sm text-neutral-200 leading-relaxed">
+            <div><dt class="inline font-mono text-[11px] uppercase tracking-wider text-[#C5A059]">{{ pu.decision_problem }}:</dt> <dd class="inline">{{ d.problem }}</dd></div>
+            <div><dt class="inline font-mono text-[11px] uppercase tracking-wider text-[#C5A059]">{{ pu.decision_choice }}:</dt> <dd class="inline">{{ d.decision }}</dd></div>
+            <div><dt class="inline font-mono text-[11px] uppercase tracking-wider text-[#C5A059]">{{ pu.decision_result }}:</dt> <dd class="inline">{{ d.consequence }}</dd></div>
+          </dl>
+        </div>
+        {% endfor %}
+      </section>
+      {% endif %}
+
+      {% if page.status %}
+      <section class="bw-frame bg-[#171717] p-6 sm:p-8 space-y-5">
+        <h2 class="font-mono text-xs uppercase tracking-wider text-[#F4E0A5] font-bold">{{ pu.status }}</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="space-y-2">
+            <h3 class="font-mono text-[11px] uppercase tracking-wider text-white font-bold">{{ pu.done }}</h3>
+            <ul class="space-y-1.5 font-body text-sm text-neutral-200">
+              {% for i in page.status.done %}<li class="flex gap-2"><span class="text-[#85E0AD]" aria-hidden="true">✓</span><span>{{ i }}</span></li>{% endfor %}
+            </ul>
+          </div>
+          <div class="space-y-2">
+            <h3 class="font-mono text-[11px] uppercase tracking-wider text-white font-bold">{{ pu.planned }}</h3>
+            <ul class="space-y-1.5 font-body text-sm text-neutral-200">
+              {% for i in page.status.planned %}<li class="flex gap-2"><span class="text-[#C5A059]" aria-hidden="true">○</span><span>{{ i }}</span></li>{% endfor %}
+            </ul>
+          </div>
+        </div>
+      </section>
+      {% endif %}
+
+      {% if page.examples %}
+      <section class="space-y-4">
+        <h2 class="font-mono text-xs uppercase tracking-wider text-[#F4E0A5] font-bold">{{ pu.examples }}</h2>
+        {% for ex in page.examples %}
+        <div class="bw-frame bg-[#171717] p-6 space-y-3">
+          <h3 class="font-mono text-xs text-white font-bold">{{ ex.title }}</h3>
+          <div class="font-mono text-[11px] uppercase tracking-wider text-[#C5A059]">{{ pu.request }}</div>
+          <pre class="code-block"><code>{{ ex.request | escape }}</code></pre>
+          <div class="font-mono text-[11px] uppercase tracking-wider text-[#C5A059]">{{ pu.response }}</div>
+          <pre class="code-block"><code>{{ ex.response | escape }}</code></pre>
+        </div>
+        {% endfor %}
+      </section>
+      {% endif %}
 
       {% assign body = content | strip %}
       {% if body != "" %}
@@ -63,27 +130,39 @@ layout: default
     </div>
 
     <aside class="lg:col-span-4">
-      <div class="bw-frame bg-[#171717] p-6 space-y-4 lg:sticky lg:top-28">
-        <h2 class="font-mono text-xs uppercase tracking-wider text-white font-bold border-b border-neutral-800 pb-3">Technical Components</h2>
-        <div class="flex flex-wrap gap-2 font-mono text-xs">
-          {% for t in page.modal.techs %}
-          <span class="px-2.5 py-1 bg-black border border-neutral-700 text-white">{{ t }}</span>
-          {% endfor %}
+      <div class="space-y-6 lg:sticky lg:top-36">
+        <div class="bw-frame deco-stepped-corner bg-[#171717] p-6 space-y-4">
+          <h2 class="font-mono text-xs uppercase tracking-wider text-[#F4E0A5] font-bold border-b border-neutral-800 pb-3">{{ pu.components }}</h2>
+          <div class="flex flex-wrap gap-2 font-mono text-xs">
+            {% for t in page.modal.techs %}
+            <span class="px-2.5 py-1 bg-black border border-neutral-700 text-white">{{ t }}</span>
+            {% endfor %}
+          </div>
         </div>
+        {% if page.evidence %}
+        <div class="bw-frame bg-[#171717] p-6 space-y-3">
+          <h2 class="font-mono text-xs uppercase tracking-wider text-[#F4E0A5] font-bold border-b border-neutral-800 pb-3">{{ pu.evidence }}</h2>
+          <ul class="space-y-2 font-mono text-xs">
+            {% for e in page.evidence %}
+            <li><a href="{{ e.url }}" target="_blank" rel="noopener noreferrer" class="text-neutral-100 hover:text-[#F4E0A5] underline underline-offset-4 decoration-neutral-600 break-words">{{ e.label }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
       </div>
     </aside>
   </div>
 
-  <nav class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-neutral-800 pt-8 font-mono text-xs" aria-label="Projetos">
+  <nav class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-neutral-800 pt-8 font-mono text-xs" aria-label="{{ pu.projects_nav }}">
     {% if prev %}
-    <a href="{{ prev.url | relative_url }}" class="bw-frame bg-[#171717] p-5 hover:border-white transition block">
-      <span class="text-neutral-400 uppercase tracking-widest block pb-1">← Previous</span>
+    <a href="{{ prev.url | relative_url }}" class="bw-frame bg-[#171717] p-5 hover:border-[#C5A059] transition block">
+      <span class="text-neutral-300 uppercase tracking-widest block pb-1">← {{ pu.prev }}</span>
       <span class="font-headline text-base font-bold text-white">{{ prev.title }}</span>
     </a>
     {% else %}<span></span>{% endif %}
     {% if next %}
-    <a href="{{ next.url | relative_url }}" class="bw-frame bg-[#171717] p-5 hover:border-white transition block sm:text-right">
-      <span class="text-neutral-400 uppercase tracking-widest block pb-1">Next →</span>
+    <a href="{{ next.url | relative_url }}" class="bw-frame bg-[#171717] p-5 hover:border-[#C5A059] transition block sm:text-right">
+      <span class="text-neutral-300 uppercase tracking-widest block pb-1">{{ pu.next }} →</span>
       <span class="font-headline text-base font-bold text-white">{{ next.title }}</span>
     </a>
     {% endif %}

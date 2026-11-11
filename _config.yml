@@ -1,7 +1,8 @@
 title: Gabriel Sampaio
-description: Portfólio de Gabriel Sampaio, desenvolvedor back-end.
+description: "Portfólio de Gabriel Sampaio, desenvolvedor Backend Júnior: APIs REST com Node.js e TypeScript, Clean Architecture, DDD e testes automatizados."
 lang: pt-BR
-url: "https://gabrielsampaios.github.io"   # ALTERE para a URL do seu GitHub Pages
+# Em produção, o workflow do GitHub Actions passa --baseurl com o caminho do repositório (/portfolio).
+url: "https://gabrielsampaios.github.io"
 baseurl: ""
 
 # Cada arquivo de _projetos/ vira uma página em /projetos/<nome-do-arquivo>/
@@ -19,6 +20,7 @@ defaults:
 
 exclude:
   - README.md
+  - docs
   - node_modules
   - package.json
   - Gemfile.lock

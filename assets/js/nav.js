@@ -5,6 +5,7 @@
   var bar = document.getElementById('scroll-progress');
   var links = Array.prototype.slice.call(document.querySelectorAll('[data-spy]'));
   var ticking = false;
+  var dial = document.getElementById('current-floor-indicator');
   var lastId = null;
 
   // Seções existentes na página (a home); some o atalho de seções ocultas, ex.: activity
@@ -17,11 +18,16 @@
       a.style.display = 'none';
     }
   });
-  var sections = ids.map(function (id) { return document.getElementById(id); });
+  // Na ordem em que aparecem na página (a barra do celular começa por "hero", o desktop não)
+  var sections = ids.map(function (id) { return document.getElementById(id); })
+    .sort(function (x, y) { return x.getBoundingClientRect().top + window.scrollY - (y.getBoundingClientRect().top + window.scrollY); });
 
   function setActive(id) {
     if (id === lastId) return;
     lastId = id;
+    // Mostrador de "andar" do elevador (desktop)
+    var cur = links.filter(function (a) { return a.getAttribute('data-spy') === id; })[0];
+    if (dial && cur && cur.getAttribute('data-floor')) dial.textContent = cur.getAttribute('data-floor');
     links.forEach(function (a) {
       var on = a.getAttribute('data-spy') === id;
       a.classList.toggle('is-active', on);

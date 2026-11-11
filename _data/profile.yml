@@ -2,31 +2,39 @@
 name: Gabriel Sampaio
 initials: GS
 role_short: "DESENVOLVEDOR BACKEND • ENGENHARIA DA COMPUTAÇÃO (UNIVESP)"
+header_badge: "PAINEL DE NAVEGAÇÃO"
 role_label: "DESENVOLVEDOR BACKEND JÚNIOR & ESTUDANTE DE ENGENHARIA DA COMPUTAÇÃO"
 headline_top: "Gabriel Sampaio —"
 headline_sub: "Sistemas Backend."
-summary: "Desenvolvedor Backend com experiência no desenvolvimento de APIs REST utilizando Node.js e TypeScript, suporte a sistemas corporativos, SQL Server, automação de processos e implantação de soluções. Estudante de Engenharia da Computação, com interesse em arquitetura de software, estruturas de dados, engenharia de software e desenvolvimento de sistemas escaláveis."
+# Resumo: separa o que é experiência profissional (suporte a sistemas, SQL Server) do que é projeto próprio (APIs).
+summary: "Desenvolvedor Backend Júnior. Construo APIs REST com Node.js e TypeScript em projetos próprios, aplicando Clean Architecture, DDD e testes automatizados. Na experiência profissional, atuei com suporte a sistemas corporativos, SQL Server, levantamento de requisitos e implantação de soluções. Estudante de Engenharia da Computação."
 
 plaque_left: "PIRACICABA, SÃO PAULO"
-plaque_right: "EDIÇÃO DE PORTFÓLIO GS-2026 // ART DÉCO MONOCROMÁTICO"
+plaque_right: "EDIÇÃO DE PORTFÓLIO GS-2026 // ART DÉCO"
 
-# Badges do hero
-badges: [Node.js, TypeScript, Express, PostgreSQL, MongoDB, Docker, Flutter]
+# Hero: Backend é o foco principal; o restante aparece como conhecimento complementar.
+badges: [Node.js, TypeScript, Express, PostgreSQL, MongoDB, Docker]
+badges_secondary: [Flutter, Python, C++]
 
-# Card "Especificações de Engenharia"
+# Cartão "Ficha técnica"
+spec_title: "FICHA TÉCNICA"
+spec_badge: "PERFIL"
 spec:
   - { label: "Foco Principal:", value: "APIs REST & Sistemas Backend" }
   - { label: "Atuação Atual:", value: "Clima Core" }
   - { label: "Formação Acadêmica:", value: "UNIVESP - Engenharia da Computação" }
   - { label: "Período Acadêmico:", value: "2023 — 2027" }
+spec_footer_left: "FICHA TÉCNICA // PIRACICABA"
+spec_footer_right: "PROPORÇÃO ÁUREA 1:1,618"
 
-# Menu do topo
+# Navegação. label = botão do desktop, short = atalho do celular, floor = mostrador de "andar".
+hero_floor: "SAGUÃO // 00"
 nav:
-  - { id: experience, label: "01. Experiência & Formação" }
-  - { id: projects, label: "02. Projetos Selecionados" }
-  - { id: skills, label: "03. Competências Técnicas" }
-  - { id: activity, label: "04. Atividade & Estatísticas" }
-  - { id: contact, label: "05. Contato", cta: true }
+  - { id: experience, label: "01. Experiência", short: "Experiência", floor: "ANDAR 01 // EXPERIÊNCIA" }
+  - { id: projects, label: "02. Projetos", short: "Projetos", floor: "ANDAR 02 // PROJETOS" }
+  - { id: skills, label: "03. Stack", short: "Stack", floor: "ANDAR 03 // STACK" }
+  - { id: activity, label: "04. Atividade", short: "Atividade", floor: "ANDAR 04 // ATIVIDADE" }
+  - { id: contact, label: "05. Contato", short: "Contato", floor: "COBERTURA // 05", cta: true }
 
 # Narrativa da seção de experiência
 narrative_title: "TRAJETÓRIA PROFISSIONAL DA INSTRUMENTAÇÃO À ENGENHARIA DE SOFTWARE"
@@ -42,6 +50,9 @@ narrative_tags:
   - "SQL Server & PostgreSQL"
   - "Automação de Processos & VBA"
 
+# Planejado nos próprios projetos, ainda sem implementação: aparece como "em estudo", nunca como competência.
+studying: [Redis (cache e lock distribuído), RabbitMQ (filas), Zod (validação), Testes de carga]
+
 # Contato
 contact:
   email: "gabrielssampaio42@gmail.com"
@@ -51,7 +62,7 @@ contact:
   intro: "Aberto a oportunidades como Desenvolvedor Backend Júnior, desafios de engenharia de software e colaborações em projetos de tecnologia."
   github: "https://github.com/GabrielSampaioS"
   linkedin: "https://www.linkedin.com/in/gabriel-sampaio0122/"
-  # Endpoint do Formspree/Getform/etc. Vazio = formulário apenas simula o envio.
+  # Endpoint do Formspree/Getform etc. Se vazio, o formulário abre o seu app de e-mail (mailto) já preenchido.
   form_endpoint: ""
 
 footer_note: "HOSPEDADO NO GITHUB PAGES • PORTFÓLIO GS-2026"

@@ -1,19 +1,20 @@
 {% assign p = site.data.profile %}
-<footer class="border-t border-neutral-800 bg-black py-12 px-6 sm:px-12">
+{% assign ui = site.data.ui %}
+<footer class="border-t border-neutral-800 bg-black pt-14 pb-12 px-6 sm:px-12 relative z-10">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
     <div class="space-y-1">
       <div class="font-headline text-white text-lg tracking-widest uppercase font-bold">{{ p.name }}</div>
-      <p class="font-mono text-xs text-neutral-400 uppercase tracking-wider">Junior Backend Developer • Computer Engineering (UNIVESP)</p>
+      <p class="font-mono text-xs text-neutral-400 uppercase tracking-wider">{{ ui.footer.tagline }}</p>
     </div>
 
-    <div class="flex items-center gap-6 font-mono text-xs text-neutral-400 uppercase tracking-widest">
-      <a href="{{ '/' | relative_url }}#hero" class="hover:text-white transition">Top of Folio</a>
-      <span class="text-white">•</span>
-      <a href="{{ p.contact.github }}" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">GitHub</a>
-      <span class="text-white">•</span>
-      <a href="{{ p.contact.linkedin }}" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">LinkedIn</a>
-    </div>
+    <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-xs text-neutral-300 uppercase tracking-widest" aria-label="Links externos">
+      <a href="{{ '/' | relative_url }}#hero" class="hover:text-white transition py-2">{{ ui.footer.top }}</a>
+      <span class="text-[#C5A059]" aria-hidden="true">•</span>
+      <a href="{{ p.contact.github }}" target="_blank" rel="noopener noreferrer" class="hover:text-white transition py-2">GitHub</a>
+      <span class="text-[#C5A059]" aria-hidden="true">•</span>
+      <a href="{{ p.contact.linkedin }}" target="_blank" rel="noopener noreferrer" class="hover:text-white transition py-2">LinkedIn</a>
+    </nav>
 
-    <div class="font-mono text-[10px] text-neutral-500 uppercase">{{ p.footer_note }}</div>
+    <div class="font-mono text-[11px] text-neutral-400 uppercase">{{ p.footer_note }}</div>
   </div>
 </footer>

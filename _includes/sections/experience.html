@@ -1,3 +1,4 @@
+{% assign ui = site.data.ui %}
 {% assign p = site.data.profile %}
 {% assign jobs = site.data.experience %}
 {% assign edu = site.data.education %}
@@ -9,14 +10,14 @@
     <div class="space-y-2">
       <div class="inline-flex items-center gap-2 font-mono text-xs text-white">
         <span class="w-1.5 h-1.5 bg-white"></span>
-        <span>DOSSIER // PROFESSIONAL EVOLUTION &amp; ACADEMIC FOUNDATIONS</span>
+        <span>{{ ui.experience.kicker }}</span>
       </div>
-      <h2 class="font-headline text-3xl sm:text-4xl font-bold uppercase tracking-wider text-white">Career &amp; Experience</h2>
+      <h2 class="font-headline text-3xl sm:text-4xl font-bold uppercase tracking-wider text-white">{{ ui.experience.title }}</h2>
     </div>
-    <div class="flex items-center gap-4 font-mono text-xs text-neutral-400 tracking-widest uppercase">
-      <span>{{ jobs | size }} POSITIONS</span>
-      <span class="text-neutral-700">|</span>
-      <span>{{ edu | size }} CREDENTIALS</span>
+    <div class="flex items-center gap-4 font-mono text-xs text-neutral-300 tracking-widest uppercase">
+      <span>{{ jobs | size }} {{ ui.experience.positions }}</span>
+      <span class="text-neutral-600" aria-hidden="true">|</span>
+      <span>{{ edu | size }} {{ ui.experience.credentials }}</span>
     </div>
   </div>
 
@@ -25,10 +26,10 @@
     <div class="lg:col-span-8 bw-frame bg-[#171717] p-8 space-y-4">
       <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
         <span class="font-mono text-xs text-white uppercase tracking-widest font-bold">{{ p.narrative_title }}</span>
-        <span class="font-mono text-[10px] text-neutral-400 uppercase">{{ p.narrative_kicker }}</span>
+        <span class="font-mono text-[11px] text-neutral-400 uppercase">{{ p.narrative_kicker }}</span>
       </div>
       {% for para in p.narrative %}
-      <p class="font-body {% if forloop.first %}text-[15px] text-neutral-300{% else %}text-sm text-neutral-400{% endif %} leading-relaxed">{{ para }}</p>
+      <p class="font-body {% if forloop.first %}text-[15px] text-neutral-300{% else %}text-sm text-neutral-300{% endif %} leading-relaxed">{{ para }}</p>
       {% endfor %}
       <div class="flex flex-wrap gap-2 pt-2 font-mono text-[11px]">
         {% for t in p.narrative_tags %}
@@ -40,14 +41,14 @@
     {% if current %}
     <div class="lg:col-span-4 bw-frame bg-[#171717] p-8 flex flex-col justify-between space-y-6">
       <div class="space-y-3">
-        <span class="font-mono text-xs text-white uppercase tracking-widest font-bold block">CURRENT APPOINTMENT</span>
+        <span class="font-mono text-xs text-white uppercase tracking-widest font-bold block">{{ ui.experience.current_title }}</span>
         <div class="font-headline text-lg font-bold text-white uppercase">{{ current.role }}</div>
         <div class="font-mono text-xs text-neutral-300">{{ current.company }} • {{ current.period }}</div>
       </div>
       <div class="border-t border-neutral-800 pt-4 flex justify-between items-center font-mono text-[11px]">
-        <span class="text-neutral-400">Status:</span>
+        <span class="text-neutral-300">{{ ui.experience.status }}</span>
         <span class="inline-flex items-center gap-1.5 text-white font-bold">
-          <span class="w-1.5 h-1.5 bg-white"></span> ACTIVE IN SERVICE
+          <span class="w-1.5 h-1.5 bg-white"></span> {{ ui.experience.status_active }}
         </span>
       </div>
     </div>
@@ -61,9 +62,9 @@
       <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
         <h3 class="font-headline text-xl font-bold uppercase tracking-wider text-white flex items-center gap-2">
           <span class="material-symbols-outlined text-white text-lg">work</span>
-          Professional Positions
+          {{ ui.experience.positions_heading }}
         </h3>
-        <span class="font-mono text-xs text-neutral-400">{{ jobs | size }} RECORDS</span>
+        <span class="font-mono text-xs text-neutral-400">{{ jobs | size }} {{ ui.experience.records }}</span>
       </div>
 
       <div class="space-y-8 relative before:absolute before:inset-y-0 before:left-4 md:before:left-5 before:w-0.5 before:bg-neutral-800">
@@ -83,17 +84,25 @@
               </div>
               <div class="text-right">
                 <span class="font-mono text-[11px] text-white font-bold bg-black px-2 py-0.5 border border-neutral-700 block">{{ job.period }}</span>
-                <span class="font-mono text-[9px] text-neutral-400 uppercase tracking-widest pt-1 block">{{ job.tag }}</span>
+                <span class="font-mono text-[11px] text-neutral-400 uppercase tracking-widest pt-1 block">{{ job.tag }}</span>
               </div>
             </div>
             <ul class="space-y-2 font-body text-xs text-neutral-300 leading-relaxed">
               {% for b in job.bullets %}
               <li class="flex items-start gap-2">
-                <span class="text-white font-mono text-[10px] mt-0.5">•</span>
+                <span class="text-white font-mono text-[11px] mt-0.5">•</span>
                 <span>{{ b }}</span>
               </li>
               {% endfor %}
             </ul>
+            {% if job.case %}
+            <div class="border border-[#C5A059]/40 bg-black/60 p-4 space-y-2 font-body text-xs leading-relaxed">
+              <span class="font-mono text-[11px] text-[#C5A059] font-bold uppercase tracking-widest">{{ ui.experience.case_label }}</span>
+              <p class="text-neutral-200"><strong class="text-white">{{ ui.experience.case_problem }}:</strong> {{ job.case.problem }}</p>
+              <p class="text-neutral-200"><strong class="text-white">{{ ui.experience.case_investigation }}:</strong> {{ job.case.investigation }}</p>
+              <p class="text-neutral-200"><strong class="text-white">{{ ui.experience.case_solution }}:</strong> {{ job.case.solution }}</p>
+            </div>
+            {% endif %}
           </div>
         </div>
         {% endfor %}
@@ -101,45 +110,28 @@
     </div>
 
     <!-- Formação -->
-    <div class="lg:col-span-5 space-y-8">
+    <div class="lg:col-span-5 space-y-8 relative">
+      {% include decor/timeline-vine.html %}
       <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
         <h3 class="font-headline text-xl font-bold uppercase tracking-wider text-white flex items-center gap-2">
           <span class="material-symbols-outlined text-white text-lg">school</span>
-          Academic History
+          {{ ui.experience.academic_heading }}
         </h3>
-        <span class="font-mono text-xs text-neutral-400">{{ edu | size }} FORMATIONS</span>
+        <span class="font-mono text-xs text-neutral-400">{{ edu | size }} {{ ui.experience.formations }}</span>
       </div>
 
-      <div class="space-y-4">
+      <div class="space-y-4 relative z-10">
         {% for e in edu %}
-        <div class="bw-frame bg-[#171717] p-5 space-y-2 {% if e.highlight %}border-l-4 border-l-white{% endif %}">
+        <div class="bw-frame bg-[#171717] p-5 space-y-2 {% if e.highlight %}border-l-4 border-l-[#C5A059]{% endif %}">
           <div class="flex items-center justify-between gap-2">
-            <span class="font-mono text-[10px] text-white uppercase tracking-widest font-bold">{{ e.kind }} // {% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+            <span class="font-mono text-[11px] text-white uppercase tracking-widest font-bold">{{ e.kind }} // {% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
             <span class="font-mono text-[11px] text-neutral-300 bg-black px-2 py-0.5 border border-neutral-700">{{ e.period }}</span>
           </div>
           <h4 class="font-headline text-base font-bold text-white uppercase">{{ e.title }}</h4>
           <div class="font-mono text-xs text-[#F2F0EB]">{{ e.school }}</div>
-          <p class="font-body text-xs text-neutral-400 pt-1 leading-relaxed">{{ e.description }}</p>
+          <p class="font-body text-xs text-neutral-300 pt-1 leading-relaxed">{{ e.description }}</p>
         </div>
         {% endfor %}
-      </div>
-
-      <div class="bw-frame bg-[#171717] p-5 space-y-3 border-t-2 border-t-white">
-        <div class="flex items-center justify-between">
-          <span class="font-mono text-xs uppercase tracking-widest text-white font-bold">DATA ARCHITECTURE // JEKYLL</span>
-          <span class="font-mono text-[10px] text-neutral-400">DATA-DRIVEN TEMPLATES</span>
-        </div>
-        <p class="font-body text-xs text-neutral-400 leading-relaxed">This portfolio is powered by decoupled YAML data models:</p>
-        <div class="grid grid-cols-2 gap-2 font-mono text-[11px]">
-          <div class="p-2 bg-black border border-neutral-800">
-            <span class="text-white block font-bold">_data/experience.yml</span>
-            <span class="text-neutral-500 text-[10px]">{{ jobs | size }} Positions &amp; Records</span>
-          </div>
-          <div class="p-2 bg-black border border-neutral-800">
-            <span class="text-white block font-bold">_data/education.yml</span>
-            <span class="text-neutral-500 text-[10px]">{{ edu | size }} Academic Credentials</span>
-          </div>
-        </div>
       </div>
     </div>
 

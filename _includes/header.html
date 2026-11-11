@@ -1,39 +1,69 @@
 {% assign p = site.data.profile %}
+{% assign ui = site.data.ui %}
 {% assign home = '/' | relative_url %}
-<header id="site-header" class="border-b border-neutral-800 bg-black/95 backdrop-blur-md sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-6 sm:px-12 py-4 md:py-5 flex items-center justify-between gap-6">
+{% assign proj_nav = p.nav | where: "id", "projects" | first %}
+{% if page.floor %}
+  {% assign floor_now = page.floor %}
+{% elsif page.collection == "projetos" %}
+  {% assign floor_now = proj_nav.floor %}
+{% else %}
+  {% assign floor_now = p.hero_floor %}
+{% endif %}
+<header id="site-header" class="elevator-console-bar sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 sm:px-12 py-3.5 flex items-center justify-between gap-6">
 
-    <div class="flex items-center gap-4">
-      <div class="w-11 h-11 border border-white bg-[#171717] flex items-center justify-center relative shrink-0">
-        <span class="font-headline font-bold text-white text-lg tracking-tighter">{{ p.initials }}</span>
-        <div class="absolute -top-1 -right-1 w-2 h-2 bg-white"></div>
+    <!-- Identidade -->
+    <div class="flex items-center gap-4 min-w-0">
+      <div class="w-11 h-11 border border-[#C5A059]/60 bg-[#12110e] flex items-center justify-center relative shrink-0 shadow-[inset_0_1px_2px_rgba(244,224,165,0.2)]" aria-hidden="true">
+        <span class="font-headline font-bold text-[#F4E0A5] text-lg tracking-tighter">{{ p.initials }}</span>
+        <div class="absolute -top-1 -right-1 w-2 h-2 bg-[#C5A059]"></div>
+        <div class="absolute -bottom-1 -left-1 w-2 h-2 bg-[#C5A059]"></div>
       </div>
-      <div>
-        <a href="{{ home }}#hero" class="font-headline text-lg sm:text-xl font-bold tracking-widest uppercase text-white hover:text-neutral-300 transition block">{{ p.name }}</a>
-        <span class="hidden sm:block text-[10px] text-neutral-400 uppercase tracking-widest font-mono">{{ p.role_short }}</span>
+      <div class="min-w-0">
+        <div class="flex items-center gap-2">
+          <a href="{{ home }}#hero" class="font-headline text-base sm:text-lg font-bold tracking-widest uppercase text-white hover:text-[#F4E0A5] transition block">{{ p.name }}</a>
+          <span class="hidden xl:inline-block font-mono text-[11px] text-[#C5A059] border border-[#C5A059]/30 px-1.5 bg-black uppercase tracking-wider">{{ p.header_badge }}</span>
+        </div>
+        <span class="hidden sm:block font-mono text-[11px] text-neutral-400 uppercase tracking-widest truncate">{{ p.role_short }}</span>
       </div>
     </div>
 
-    <!-- Desktop -->
-    <nav class="hidden md:flex items-center gap-7 font-mono text-[10px] uppercase tracking-widest font-semibold" aria-label="Seções">
-      {% for item in p.nav %}
-        {% if item.cta %}
-        <a href="{{ home }}#{{ item.id }}" data-spy="{{ item.id }}" class="px-5 py-2 bg-white text-black hover:bg-neutral-200 font-bold uppercase tracking-wider transition border border-white">{{ item.label }}</a>
-        {% else %}
-        <a href="{{ home }}#{{ item.id }}" data-spy="{{ item.id }}" class="nav-link text-neutral-400 hover:text-white transition">{{ item.label }}</a>
-        {% endif %}
-      {% endfor %}
-    </nav>
+    <!-- Desktop: mostrador de andar + botões -->
+    <div class="hidden md:flex items-center gap-5">
+      <div class="elevator-dial-indicator px-3 py-1.5 flex items-center gap-2.5 font-mono text-xs" aria-hidden="true">
+        <div class="flex items-center gap-1">
+          <span class="material-symbols-outlined text-[#C5A059] text-sm">arrow_upward</span>
+          <span class="text-[11px] uppercase tracking-wider text-neutral-400">{{ ui.header.floor_label }}</span>
+        </div>
+        <span id="current-floor-indicator" class="font-bold text-[#F4E0A5] tracking-widest text-[11px] drop-shadow-[0_0_6px_rgba(197,160,89,0.5)]">{{ floor_now }}</span>
+      </div>
+
+      <nav class="flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider" aria-label="{{ ui.site.sections_nav }}">
+        {% for item in p.nav %}
+          {% if item.cta %}
+          <a href="{{ home }}#{{ item.id }}" data-spy="{{ item.id }}" data-floor="{{ item.floor }}" class="brass-cta px-4 py-2 font-bold uppercase tracking-wider transition flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 bg-black rotate-45" aria-hidden="true"></span>
+            <span>{{ item.label }}</span>
+          </a>
+          {% else %}
+          <a href="{{ home }}#{{ item.id }}" data-spy="{{ item.id }}" data-floor="{{ item.floor }}" class="elevator-floor-btn px-3 py-2 flex items-center gap-2 hover:text-white">
+            <span class="floor-jewel" aria-hidden="true"></span>
+            <span>{{ item.label }}</span>
+          </a>
+          {% endif %}
+        {% endfor %}
+      </nav>
+    </div>
   </div>
 
-  <!-- Celular: atalhos rolaveis com a seção atual destacada -->
-  <nav class="md:hidden relative flex gap-2 overflow-x-auto px-6 pb-3 font-mono text-[11px] uppercase tracking-widest no-scrollbar" aria-label="Seções">
-    <a href="{{ home }}#hero" data-spy="hero" class="nav-chip shrink-0 px-3.5 py-1.5 border border-neutral-700 text-neutral-400">Home</a>
+  <!-- Celular: atalhos rolaveis, com a seção atual destacada -->
+  <nav class="md:hidden flex gap-2 overflow-x-auto px-6 pb-3 font-mono text-[12px] uppercase tracking-widest no-scrollbar" aria-label="{{ ui.site.shortcuts_nav }}">
+    <a href="{{ home }}#hero" data-spy="hero" data-floor="{{ p.hero_floor }}" class="nav-chip shrink-0 px-4">{{ ui.site.home }}</a>
     {% for item in p.nav %}
-    <a href="{{ home }}#{{ item.id }}" data-spy="{{ item.id }}" class="nav-chip shrink-0 px-3.5 py-1.5 border border-neutral-700 text-neutral-400">{{ item.short | default: item.label }}</a>
+    <a href="{{ home }}#{{ item.id }}" data-spy="{{ item.id }}" data-floor="{{ item.floor }}" class="nav-chip shrink-0 px-4">{{ item.short | default: item.label }}</a>
     {% endfor %}
   </nav>
 
-  <div class="cadence-rule"></div>
-  <div id="scroll-progress" class="absolute bottom-0 left-0 h-[2px] bg-white" style="width:0"></div>
+  <div class="deco-fluted-line"></div>
+  <div id="scroll-progress" class="absolute bottom-0 left-0 h-[2px] bg-[#F4E0A5]" style="width:0" aria-hidden="true"></div>
 </header>

@@ -1,0 +1,312 @@
+{% comment %} Trepadeira ao longo da coluna de formação (decorativo, aria-hidden) {% endcomment %}
+          <div class="hidden lg:block absolute inset-0 pointer-events-none select-none z-0 overflow-visible">
+            <svg viewBox="0 0 480 1400" class="w-full h-full overflow-visible filter drop-shadow-[0_4px_18px_rgba(0,0,0,0.95)] opacity-90" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <!-- Deep Malachite / Forest Green Gradients -->
+                <linearGradient id="climbingStemMain" x1="0%" y1="100%" x2="0%" y2="0%">
+                  <stop offset="0%" stop-color="#07140e"></stop>
+                  <stop offset="20%" stop-color="#143625"></stop>
+                  <stop offset="50%" stop-color="#245039"></stop>
+                  <stop offset="80%" stop-color="#163c29"></stop>
+                  <stop offset="100%" stop-color="#0a1d13"></stop>
+                </linearGradient>
+
+                <linearGradient id="climbingStemSub" x1="0%" y1="100%" x2="0%" y2="0%">
+                  <stop offset="0%" stop-color="#0b2015"></stop>
+                  <stop offset="35%" stop-color="#1e4632"></stop>
+                  <stop offset="70%" stop-color="#2b5940"></stop>
+                  <stop offset="100%" stop-color="#133323"></stop>
+                </linearGradient>
+
+                <linearGradient id="leafSmallDeep" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#2b5e43"></stop>
+                  <stop offset="50%" stop-color="#183d2c"></stop>
+                  <stop offset="100%" stop-color="#081810"></stop>
+                </linearGradient>
+
+                <linearGradient id="leafSmallLight" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#3d7d5a"></stop>
+                  <stop offset="60%" stop-color="#1e4933"></stop>
+                  <stop offset="100%" stop-color="#0c2317"></stop>
+                </linearGradient>
+
+                <linearGradient id="goldFiligree" x1="0%" y1="100%" x2="0%" y2="0%">
+                  <stop offset="0%" stop-color="#735722" stop-opacity="0.4"></stop>
+                  <stop offset="50%" stop-color="#C5A059" stop-opacity="0.8"></stop>
+                  <stop offset="100%" stop-color="#E2C882" stop-opacity="0.95"></stop>
+                </linearGradient>
+              </defs>
+
+              <!-- ======================================================== -->
+              <!-- MULTIPLE CLIMBING BRANCHES (3 INTERTWINED BOUGHS & TWIGS) -->
+              <!-- ======================================================== -->
+
+              <!-- Primary Central Bough (Main trunk climbing to top header) -->
+              <path d="M 270 1390
+                   C 340 1280, 410 1160, 385 1040
+                   C 360 920, 425 800, 405 680
+                   C 385 560, 435 440, 395 320
+                   C 365 200, 415 100, 360 15" fill="none" stroke="#040b07" stroke-width="5" stroke-linecap="round" opacity="0.85"></path>
+              <path d="M 270 1390
+                   C 340 1280, 410 1160, 385 1040
+                   C 360 920, 425 800, 405 680
+                   C 385 560, 435 440, 395 320
+                   C 365 200, 415 100, 360 15" fill="none" stroke="url(#climbingStemMain)" stroke-width="2.8" stroke-linecap="round"></path>
+              <path d="M 270 1390
+                   C 340 1280, 410 1160, 385 1040
+                   C 360 920, 425 800, 405 680
+                   C 385 560, 435 440, 395 320
+                   C 365 200, 415 100, 360 15" fill="none" stroke="url(#goldFiligree)" stroke-width="0.75" stroke-dasharray="9 7" stroke-linecap="round"></path>
+
+              <!-- Second Branch (Weaves towards the outer right edge) -->
+              <path d="M 310 1370
+                   C 390 1240, 445 1120, 420 990
+                   C 390 850, 455 720, 430 580
+                   C 410 460, 460 340, 420 220
+                   C 395 130, 440 60, 390 20" fill="none" stroke="url(#climbingStemSub)" stroke-width="2" stroke-linecap="round" opacity="0.8"></path>
+              <path d="M 310 1370
+                   C 390 1240, 445 1120, 420 990
+                   C 390 850, 455 720, 430 580
+                   C 410 460, 460 340, 420 220
+                   C 395 130, 440 60, 390 20" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5" stroke-dasharray="6 8" stroke-linecap="round" opacity="0.6"></path>
+
+              <!-- Third Branch (Inner subtle runner weaving behind cards) -->
+              <path d="M 230 1360
+                   C 290 1230, 350 1140, 335 1020
+                   C 320 890, 375 780, 360 650
+                   C 345 520, 390 410, 365 290
+                   C 345 190, 375 110, 330 35" fill="none" stroke="#122f21" stroke-width="1.6" stroke-linecap="round" opacity="0.7"></path>
+
+              <!-- Branching Twigs & Spirals -->
+              <!-- Twig 1: Lower offshoot -->
+              <path d="M 385 1040 C 440 1010, 465 960, 450 910" fill="none" stroke="#1c4430" stroke-width="1.2" stroke-linecap="round" opacity="0.75"></path>
+              <path d="M 335 1020 C 270 990, 250 940, 275 890" fill="none" stroke="#1c4430" stroke-width="1.1" stroke-linecap="round" opacity="0.6"></path>
+
+              <!-- Twig 2: Mid-lower offshoot -->
+              <path d="M 405 680 C 455 650, 475 600, 460 550" fill="none" stroke="#1c4430" stroke-width="1.2" stroke-linecap="round" opacity="0.75"></path>
+              <path d="M 360 650 C 310 630, 290 580, 315 540" fill="none" stroke="#1c4430" stroke-width="1" stroke-linecap="round" opacity="0.6"></path>
+
+              <!-- Twig 3: Mid-upper offshoot -->
+              <path d="M 395 320 C 450 290, 470 240, 445 190" fill="none" stroke="#1c4430" stroke-width="1.2" stroke-linecap="round" opacity="0.75"></path>
+              <path d="M 365 290 C 320 270, 305 220, 330 180" fill="none" stroke="#1c4430" stroke-width="1" stroke-linecap="round" opacity="0.6"></path>
+
+              <!-- Art Deco Curly Tendril Accents -->
+              <path d="M 450 910 C 440 880, 415 870, 422 855 C 428 845 440 850 436 860" fill="none" stroke="#2a6045" stroke-width="1" stroke-linecap="round"></path>
+              <path d="M 460 550 C 450 520, 425 510, 432 495 C 438 485 450 490 446 500" fill="none" stroke="#2a6045" stroke-width="1" stroke-linecap="round"></path>
+              <path d="M 445 190 C 435 160, 410 150, 417 135 C 423 125 435 130 431 140" fill="none" stroke="#2a6045" stroke-width="1" stroke-linecap="round"></path>
+              <path d="M 360 15 C 345 -5, 315 -8, 320 -20 C 325 -28, 338 -22, 333 -12" fill="none" stroke="#2a6045" stroke-width="1" stroke-linecap="round"></path>
+
+              <!-- ======================================================== -->
+              <!-- DENSE, DELICATE, MINIATURE LEAF CLUSTERS (HIGH QUANTITY) -->
+              <!-- ======================================================== -->
+
+              <!-- LEVEL 0: Top Header "Academic History" (Y: 0 - 80) -->
+              <g>
+                <!-- Terminal delicate spray at title line -->
+                <path d="M 360 15 Q 330 12 315 2 Q 342 -8 362 13 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 360 15 Q 332 10 318 4" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="313" cy="2" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 362 18 Q 390 10 405 20 Q 382 32 360 22 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 362 18 Q 388 12 402 19" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+
+                <path d="M 390 20 Q 420 15 432 28 Q 408 40 388 24 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 390 20 Q 418 17 430 27" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="433" cy="28" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 330 35 Q 295 30 285 18 Q 312 12 332 33 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 330 35 Q 300 28 288 20" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+
+                <path d="M 345 50 Q 380 45 392 60 Q 365 70 343 53 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 370 70 Q 405 65 418 80 Q 392 90 368 73 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+              </g>
+
+              <!-- LEVEL 1: Beside UNIVESP Card (Y: 100 - 240) -->
+              <g>
+                <path d="M 410 110 Q 440 98 452 112 Q 430 125 408 114 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 410 110 Q 438 100 450 111" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="453" cy="112" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 380 130 Q 350 120 338 135 Q 360 148 382 133 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 395 150 Q 425 140 438 155 Q 415 168 393 153 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <path d="M 420 180 Q 455 170 468 186 Q 442 200 418 184 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 420 180 Q 452 172 466 185" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="470" cy="186" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 365 190 Q 330 180 320 196 Q 345 208 368 193 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 375 215 Q 345 210 332 226 Q 355 238 377 218 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <path d="M 415 220 Q 448 212 460 228 Q 435 240 413 223 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 415 220 Q 445 214 458 227" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="462" cy="228" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 428 240 Q 460 235 470 252 Q 444 262 426 243 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+              </g>
+
+              <!-- LEVEL 2: Between UNIVESP and SENAI (Y: 250 - 380) -->
+              <g>
+                <path d="M 380 260 Q 350 250 338 266 Q 360 278 382 263 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 390 280 Q 422 270 435 288 Q 410 300 388 283 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 390 280 Q 420 272 433 286" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="436" cy="288" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 365 290 Q 330 282 320 298 Q 344 310 367 293 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 415 310 Q 450 300 464 318 Q 438 330 413 313 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <path d="M 395 320 Q 430 310 445 328 Q 418 340 393 323 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 395 320 Q 428 312 443 326" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="447" cy="328" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 355 330 Q 320 322 310 338 Q 335 350 357 333 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 370 350 Q 402 340 415 358 Q 390 370 368 353 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <path d="M 410 360 Q 446 350 460 368 Q 432 380 408 363 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 410 360 Q 442 352 458 366" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="462" cy="368" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 360 375 Q 325 368 316 384 Q 340 395 362 378 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+              </g>
+
+              <!-- LEVEL 3: Beside SENAI & ETEC Sistemas (Y: 390 - 560) -->
+              <g>
+                <path d="M 425 400 Q 458 390 472 408 Q 445 420 423 403 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 425 400 Q 455 392 470 406" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="474" cy="408" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 385 410 Q 352 402 342 418 Q 366 430 387 413 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 400 430 Q 432 420 446 438 Q 420 450 398 433 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <path d="M 370 450 Q 338 440 328 458 Q 352 470 372 453 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 370 450 Q 340 442 330 456" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="326" cy="458" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 420 460 Q 455 450 468 468 Q 442 480 418 463 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 390 480 Q 424 470 438 488 Q 412 500 388 483 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <path d="M 410 500 Q 448 490 462 508 Q 435 520 408 503 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 410 500 Q 445 492 460 506" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="464" cy="508" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 360 515 Q 328 508 318 524 Q 342 536 362 518 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 385 535 Q 418 525 432 543 Q 406 555 383 538 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <path d="M 430 550 Q 465 540 478 558 Q 452 570 428 553 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 430 550 Q 462 542 476 556" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="480" cy="558" r="1.5" fill="#F4E0A5"></circle>
+              </g>
+
+              <!-- LEVEL 4: Beside Cruzeiro do Sul Card (Y: 570 - 750) -->
+              <g>
+                <path d="M 370 570 Q 338 560 328 578 Q 352 590 372 573 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 415 580 Q 450 570 464 588 Q 438 600 413 583 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <path d="M 395 600 Q 430 590 445 608 Q 418 620 393 603 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 395 600 Q 428 592 443 606" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="447" cy="608" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 350 615 Q 318 608 308 624 Q 332 636 352 618 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 380 635 Q 415 625 428 643 Q 402 655 378 638 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <path d="M 420 650 Q 455 640 468 658 Q 442 670 418 653 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 420 650 Q 452 642 466 656" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="470" cy="658" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 360 670 Q 328 662 318 678 Q 342 690 362 673 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 405 680 Q 442 670 456 688 Q 430 700 403 683 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <path d="M 385 705 Q 420 695 434 713 Q 408 725 383 708 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 385 705 Q 418 698 432 711" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="436" cy="713" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 345 720 Q 312 712 302 728 Q 326 740 347 723 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 410 735 Q 448 725 462 743 Q 435 755 408 738 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 410 735 Q 445 727 460 741" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="464" cy="743" r="1.5" fill="#F4E0A5"></circle>
+              </g>
+
+              <!-- LEVEL 5: Beside ETEC Química & Jekyll Note (Y: 760 - 980) -->
+              <g>
+                <path d="M 365 760 Q 332 752 322 768 Q 346 780 367 763 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 420 770 Q 455 760 468 778 Q 442 790 418 773 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <path d="M 390 790 Q 425 780 440 798 Q 414 810 388 793 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 390 790 Q 422 782 438 796" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="442" cy="798" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 340 805 Q 308 798 298 814 Q 322 826 342 808 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 375 825 Q 410 815 424 833 Q 398 845 373 828 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <path d="M 415 845 Q 450 835 464 853 Q 438 865 413 848 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 415 845 Q 448 837 462 851" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="466" cy="853" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 355 865 Q 322 858 312 874 Q 336 886 357 868 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 395 880 Q 432 870 446 888 Q 420 900 393 883 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <path d="M 425 905 Q 460 895 474 913 Q 448 925 423 908 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 425 905 Q 458 898 472 911" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="476" cy="913" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 335 920 Q 302 912 292 928 Q 316 940 337 923 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 380 940 Q 418 930 432 948 Q 405 960 378 943 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <path d="M 410 965 Q 448 955 462 973 Q 435 985 408 968 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 410 965 Q 445 958 460 971" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="464" cy="973" r="1.5" fill="#F4E0A5"></circle>
+              </g>
+
+              <!-- LEVEL 6: Rich Bottom Cascading Base & Empty Area Foliage (Y: 990 - 1390) -->
+              <g>
+                <path d="M 350 990 Q 318 982 308 998 Q 332 1010 352 993 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 385 1010 Q 422 1000 436 1018 Q 410 1030 383 1013 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <path d="M 420 1030 Q 458 1020 472 1038 Q 445 1050 418 1033 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 420 1030 Q 455 1022 470 1036" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="474" cy="1038" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 330 1045 Q 295 1035 285 1052 Q 310 1065 332 1048 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 370 1065 Q 408 1055 422 1073 Q 395 1085 368 1068 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <!-- Foliage spray expanding across the empty bottom space -->
+                <path d="M 410 1090 Q 452 1078 466 1098 Q 438 1112 408 1093 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 410 1090 Q 448 1082 464 1096" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="468" cy="1098" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 345 1110 Q 308 1100 296 1118 Q 322 1132 347 1113 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 380 1130 Q 420 1118 435 1138 Q 408 1152 378 1133 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <path d="M 425 1150 Q 465 1138 478 1158 Q 450 1172 422 1153 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 425 1150 Q 462 1142 476 1156" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="480" cy="1158" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 315 1165 Q 275 1155 262 1175 Q 290 1190 318 1168 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 360 1185 Q 400 1172 415 1194 Q 388 1208 358 1188 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <path d="M 395 1210 Q 438 1198 452 1220 Q 424 1234 392 1213 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 395 1210 Q 434 1202 450 1218" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="454" cy="1220" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 290 1230 Q 250 1220 238 1242 Q 266 1256 292 1233 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 340 1250 Q 382 1238 398 1260 Q 370 1274 338 1253 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <path d="M 375 1275 Q 418 1262 432 1285 Q 402 1300 372 1278 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 375 1275 Q 414 1266 430 1283" fill="none" stroke="url(#goldFiligree)" stroke-width="0.5"></path>
+                <circle cx="434" cy="1285" r="1.5" fill="#F4E0A5"></circle>
+
+                <path d="M 265 1295 Q 225 1285 212 1308 Q 242 1322 268 1298 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+                <path d="M 320 1320 Q 362 1308 378 1332 Q 350 1346 318 1323 Z" fill="url(#leafSmallLight)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <path d="M 280 1350 Q 240 1340 228 1362 Q 258 1376 282 1353 Z" fill="url(#leafSmallDeep)" stroke="#0d2317" stroke-width="0.6"></path>
+
+                <!-- Architectural Base Mount & Golden Art Deco Finials -->
+                <circle cx="270" cy="1390" r="3" fill="#141414" stroke="#C5A059" stroke-width="1.2"></circle>
+                <circle cx="270" cy="1390" r="1.2" fill="#F4E0A5"></circle>
+                <circle cx="310" cy="1370" r="2.5" fill="#141414" stroke="#C5A059" stroke-width="1"></circle>
+                <circle cx="310" cy="1370" r="1" fill="#F4E0A5"></circle>
+                <circle cx="230" cy="1360" r="2" fill="#141414" stroke="#C5A059" stroke-width="0.8"></circle>
+                <polygon points="270,1380 274,1386 270,1392 266,1386" fill="#C5A059" opacity="0.8"></polygon>
+              </g>
+
+            </svg>
+          </div>

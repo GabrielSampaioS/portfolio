@@ -1,5 +1,6 @@
-/* Formulário de contato. Com data-endpoint (Formspree, Getform etc.) envia de verdade;
-   sem endpoint, só mostra a confirmação local (nada é enviado). */
+/* Formulário de contato.
+   - Com data-endpoint (Formspree, Getform etc.): envia de verdade via fetch.
+   - Sem endpoint: abre o aplicativo de e-mail (mailto:) já com a mensagem preenchida. */
 (function () {
   var form = document.getElementById('contact-form');
   var feedback = document.getElementById('form-feedback');
@@ -15,7 +16,13 @@
     var endpoint = form.getAttribute('data-endpoint');
 
     if (!endpoint) {
-      show('Formulário em modo demonstração: configure form_endpoint em _data/profile.yml para receber mensagens.');
+      var to = form.getAttribute('data-mailto');
+      var f = form.elements;
+      var body = f.message.value + '\n\n— ' + f.name.value + ' (' + f.email.value + ')';
+      var url = 'mailto:' + to + '?subject=' + encodeURIComponent(f.subject.value) +
+        '&body=' + encodeURIComponent(body);
+      show('Abrindo seu aplicativo de e-mail com a mensagem pronta. Se nada abrir, escreva para ' + to + '.');
+      window.location.href = url;
       return;
     }
 

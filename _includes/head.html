@@ -1,15 +1,30 @@
+{% assign site_title = site.title %}
+{% if page.title and page.title != site_title %}
+  {% capture page_title %}{{ page.title }} — {{ site_title }}{% endcapture %}
+{% else %}
+  {% capture page_title %}{{ site_title }} — Desenvolvedor Backend{% endcapture %}
+{% endif %}
+{% assign page_desc = page.summary | default: page.description | default: site.description %}
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title | default: site.title }} — Backend Developer</title>
-  <meta name="description" content="{{ site.description }}">
+  <title>{{ page_title }}</title>
+  <meta name="description" content="{{ page_desc | strip_html | escape }}">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page_title | escape }}">
+  <meta property="og:description" content="{{ page_desc | strip_html | escape }}">
+  <meta property="og:locale" content="pt_BR">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23121212'/%3E%3Crect x='1' y='1' width='30' height='30' fill='none' stroke='%23C5A059'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='14' font-weight='700' text-anchor='middle' fill='%23F4E0A5'%3EGS%3C/text%3E%3C/svg%3E">
 
   <!-- Tailwind via CDN (funciona no GitHub Pages sem build). A config fica em assets/js/tailwind.config.js -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script src="{{ '/assets/js/tailwind.config.js' | relative_url }}"></script>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
-  
