@@ -1,0 +1,23 @@
+flowchart TD
+  A(["Usuário escolhe um PDF"]) --> B["input type=file<br/>JavaScript recupera o File"]
+  B --> C["saveBook(file)"]
+  C --> D[("IndexedDB<br/>Blob + currentPage = 1")]:::store
+  D --> E["Biblioteca atualizada<br/>(capa = 1ª página)"]
+  E --> F["Abrir livro<br/>getBook(id)"]
+  F --> G["PDF.js abre o documento"]
+  G --> H["Renderiza UMA página<br/>Canvas + Text Layer<br/>escala para caber na tela"]
+  H --> I{"Toque ou clique"}
+  I -->|"25% esquerdo"| J["Página anterior"]
+  I -->|"25% direito"| K["Próxima página"]
+  I -->|"centro"| L["Selecionar texto<br/>(mouse ou S Pen)"]
+  J --> M["clampPage(1..total)"]
+  K --> M
+  M --> N["updateCurrentPage(id, página)"]
+  N --> D
+  M --> H
+  L -.-> P["Identificar a frase da palavra"]:::planned
+  P -.-> Q["Definição e tradução"]:::planned
+  Q -.-> R["Cartão no AnkiDroid<br/>palavra + frase"]:::planned
+  classDef planned stroke-dasharray:6 4,stroke:#F4E0A5,color:#F4E0A5,fill:#2a2417;
+  classDef ext fill:#16221d,stroke:#5fae8a;
+  classDef store fill:#2a2417,stroke:#C5A059;

@@ -1,0 +1,9 @@
+stateDiagram-v2
+  direction LR
+  [*] --> PENDING: POST /bookings<br/>expiresAt = agora + 15 min
+  PENDING --> CONFIRMED: PATCH /bookings/:id
+  PENDING --> CANCELLED: PATCH /bookings/:id
+  PENDING --> EXPIRED: expiração automática (planejada)
+  CONFIRMED --> [*]
+  CANCELLED --> [*]
+  EXPIRED --> [*]

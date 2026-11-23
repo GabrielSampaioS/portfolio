@@ -1,0 +1,39 @@
+erDiagram
+  THEATRE ||--o{ ROOM : "tem"
+  ROOM ||--o{ SEAT : "tem"
+  ROOM ||--o{ SESSION : "recebe"
+  MOVIE ||--o{ SESSION : "é exibido em"
+  CLIENT ||--o{ BOOKING : "faz"
+  SESSION ||--o{ BOOKING : "recebe"
+  SEAT ||--o{ BOOKING : "é reservado em"
+  STATUS ||--o{ BOOKING : "classifica"
+  BOOKING {
+    int idBooking PK
+    int clientId FK
+    int sessionId FK
+    int seatId FK
+    int statusId FK
+    datetime expiresAt
+  }
+  SESSION {
+    int idSession PK
+    int movieId FK
+    int roomId FK
+    datetime startTime
+    decimal price
+  }
+  SEAT {
+    int idSeat PK
+    int roomId FK
+    int row
+    int number
+  }
+  CLIENT {
+    int idClient PK
+    string email UK
+    string passwordHash
+  }
+  STATUS {
+    int idStatus PK
+    string description
+  }

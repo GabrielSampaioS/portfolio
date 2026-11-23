@@ -1,0 +1,61 @@
+{
+  "theme": "base",
+  "themeVariables": {
+    "background": "transparent",
+    "fontFamily": "Arial, Helvetica, sans-serif",
+    "fontSize": "15px",
+    "primaryColor": "#1c2633",
+    "primaryTextColor": "#F2F0EB",
+    "primaryBorderColor": "#C5A059",
+    "secondaryColor": "#16221d",
+    "secondaryTextColor": "#F2F0EB",
+    "secondaryBorderColor": "#5fae8a",
+    "tertiaryColor": "#101419",
+    "tertiaryTextColor": "#F2F0EB",
+    "tertiaryBorderColor": "#6b6350",
+    "lineColor": "#C5A059",
+    "textColor": "#F2F0EB",
+    "mainBkg": "#1c2633",
+    "nodeBorder": "#C5A059",
+    "clusterBkg": "#10151c",
+    "clusterBorder": "#6b6350",
+    "edgeLabelBackground": "#0c1016",
+    "titleColor": "#F4E0A5",
+    "noteBkgColor": "#2a2417",
+    "noteTextColor": "#F4E0A5",
+    "noteBorderColor": "#C5A059",
+    "actorBkg": "#1c2633",
+    "actorBorder": "#C5A059",
+    "actorTextColor": "#F2F0EB",
+    "actorLineColor": "#6b6350",
+    "signalColor": "#C5A059",
+    "signalTextColor": "#F2F0EB",
+    "labelBoxBkgColor": "#2a2417",
+    "labelBoxBorderColor": "#C5A059",
+    "labelTextColor": "#F4E0A5",
+    "loopTextColor": "#F4E0A5",
+    "activationBkgColor": "#2a2417",
+    "attributeBackgroundColorOdd": "#1c2633",
+    "attributeBackgroundColorEven": "#141b25",
+    "stateBkg": "#1c2633",
+    "stateLabelColor": "#F2F0EB",
+    "transitionColor": "#C5A059",
+    "transitionLabelColor": "#F2F0EB"
+  },
+  "flowchart": {
+    "htmlLabels": false,
+    "curve": "basis",
+    "nodeSpacing": 40,
+    "rankSpacing": 50,
+    "padding": 12
+  },
+  "sequence": {
+    "mirrorActors": false,
+    "useMaxWidth": true,
+    "wrap": true
+  },
+  "er": {
+    "useMaxWidth": true
+  },
+  "themeCSS": ".row-rect-odd path, .row-rect-odd rect, .row-rect-odd polygon {fill:#1c2633 !important; stroke:#6b6350 !important;} .row-rect-even path, .row-rect-even rect, .row-rect-even polygon {fill:#141b25 !important; stroke:#6b6350 !important;} .attributeBoxOdd, .attributeBoxEven {stroke:#6b6350 !important;} .attributeBoxOdd {fill:#1c2633 !important;} .attributeBoxEven {fill:#141b25 !important;} .entityBox, .er.entityBox {fill:#2a2417 !important; stroke:#C5A059 !important;} .er.entityLabel, .entityLabel {fill:#F4E0A5 !important;} .er text, .relationshipLabel, .relationshipLabelBox {fill:#F2F0EB !important;} .relationshipLabelBox {fill:#0c1016 !important; opacity:1 !important;} .node.row-rect-odd *, .node.row-rect-even * {fill:inherit;}"
+}

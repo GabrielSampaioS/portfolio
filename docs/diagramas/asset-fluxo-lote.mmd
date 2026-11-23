@@ -1,0 +1,18 @@
+flowchart TD
+  A(["Login<br/>e-mail ou Google"]) --> B["Início"]
+  B --> C["Novo lote"]
+  C --> D{"Identificar ativo"}
+  D -->|"câmera"| E["Leitura de QR Code"]
+  D -->|"coletor Zebra"| F["DataWedge"]
+  E --> G["Item identificado"]
+  F --> G
+  G --> H["Status limitado ao tipo de ativo<br/>regra allowedStatus"]
+  H --> I["Item entra no lote<br/>id UUID"]
+  I --> D
+  I --> J["Salvar lote"]
+  J --> K["WriteBatch do Firestore<br/>Batch + BatchItems juntos"]
+  K --> L[("commit atômico:<br/>tudo ou nada")]:::store
+  L -.-> M["Sincronização offline robusta<br/>e resolução de conflitos"]:::planned
+  classDef planned stroke-dasharray:6 4,stroke:#F4E0A5,color:#F4E0A5,fill:#2a2417;
+  classDef ext fill:#16221d,stroke:#5fae8a;
+  classDef store fill:#2a2417,stroke:#C5A059;

@@ -21,4 +21,9 @@ status:
     - "Métricas de recuperação (Precision@K e Recall@K)"
     - "Busca híbrida com BM25 e reranking"
     - "Chunking estrutural e testes automatizados"
+diagrams:
+  - src: rag-pipeline.svg
+    title: "Pipeline do RAG local"
+    caption: "Ingestão e consulta, tudo local com Ollama e ChromaDB. BM25, reranking e métricas de recuperação estão planejados."
+    alt: "Fluxograma em dois blocos. Ingestão: PDFs, PyPDFLoader, divisão em chunks, metadados por regras, embeddings e ChromaDB. Consulta: pergunta, embedding, busca por similaridade com filtro por categoria, modelo no Ollama e resposta com documento e página."
 ---

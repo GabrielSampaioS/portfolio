@@ -1,0 +1,9 @@
+flowchart TB
+  E1["Etapa 1 · Armazenamento local (IndexedDB)"]:::done --> E2["Etapa 2 · Leitor PDF<br/>teste no Galaxy Tab pendente"]:::done
+  E2 --> E3["Etapa 3 · Desempenho e cache<br/>pré-renderização de páginas"]:::planned
+  E3 --> E4["Etapa 4 · Seleção de texto<br/>Text Layer pronta; captura da<br/>palavra e da frase pendente"]:::partial
+  E4 --> E5["Etapa 5 · Vocabulário<br/>definição e tradução"]:::planned
+  E5 --> E6["Etapa 6 · Integração com AnkiDroid"]:::planned
+  classDef done fill:#16221d,stroke:#5fae8a,color:#F2F0EB;
+  classDef partial fill:#1c2633,stroke:#C5A059,color:#F2F0EB;
+  classDef planned stroke-dasharray:6 4,stroke:#F4E0A5,color:#F4E0A5,fill:#2a2417;

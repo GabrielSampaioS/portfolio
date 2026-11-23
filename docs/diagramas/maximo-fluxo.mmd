@@ -1,0 +1,7 @@
+flowchart TB
+  I(["Imagens originais"]) --> W["Conversão para WebP"]
+  W --> G["Site em HTML, CSS e JavaScript<br/>galerias, modal e carrosséis"]
+  G --> LZ["Lazy loading<br/>carrega a imagem ao aparecer na tela"]
+  LZ --> GIT["Git + GitHub"]
+  GIT --> GP["GitHub Pages"]
+  GP --> V(["Visitante<br/>desktop ou celular"])

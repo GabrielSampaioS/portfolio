@@ -1,0 +1,22 @@
+flowchart TB
+  SRV["Servidor Node.js + Express<br/>só arquivos estáticos:<br/>public, src e vendor/pdfjs"]
+  subgraph NAV["Navegador (toda a leitura acontece aqui)"]
+    direction TB
+    UI["Interface<br/>public/app.js"]
+    ST["Armazenamento<br/>book-storage.js"]
+    VW["Leitor<br/>pdf-viewer.js"]
+    MT["Funções puras<br/>reader-math.mjs"]
+    DB[("IndexedDB<br/>anki-reader / books")]:::store
+    PJ["PDF.js<br/>Canvas + Text Layer"]:::ext
+    UI --> ST --> DB
+    UI --> VW
+    VW --> PJ
+    VW --> MT
+  end
+  SRV -->|"entrega HTML, JS e PDF.js"| UI
+  PDF(["PDF do usuário"]) -->|"fica só no navegador"| ST
+  API["Backend de serviços<br/>dicionário, tradução e Anki"]:::planned
+  VW -.->|"planejado"| API
+  classDef planned stroke-dasharray:6 4,stroke:#F4E0A5,color:#F4E0A5,fill:#2a2417;
+  classDef ext fill:#16221d,stroke:#5fae8a;
+  classDef store fill:#2a2417,stroke:#C5A059;

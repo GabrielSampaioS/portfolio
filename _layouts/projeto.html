@@ -56,6 +56,44 @@ layout: default
         <p class="font-body text-sm sm:text-base text-[#F2F0EB] leading-relaxed">{{ page.highlight }}</p>
       </section>
 
+      {% if page.screenshots %}
+      <section class="space-y-4" aria-labelledby="capturas-titulo">
+        <h2 id="capturas-titulo" class="font-mono text-xs uppercase tracking-wider text-[#F4E0A5] font-bold">{{ pu.gallery }}</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {% for s in page.screenshots %}
+          {% assign shot_url = '/assets/img/projetos/' | append: s.src | relative_url %}
+          <figure class="bw-frame bg-[#171717] p-3 space-y-2">
+            <a href="{{ shot_url }}" target="_blank" rel="noopener noreferrer"><img src="{{ shot_url }}" alt="{{ s.alt | escape }}" loading="lazy" decoding="async" class="diagram-img"></a>
+            {% if s.caption %}<figcaption class="font-body text-xs text-neutral-300 leading-relaxed">{{ s.caption }}</figcaption>{% endif %}
+          </figure>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+
+      {% if page.diagrams %}
+      <section class="space-y-6" aria-labelledby="diagramas-titulo">
+        <h2 id="diagramas-titulo" class="font-mono text-xs uppercase tracking-wider text-[#F4E0A5] font-bold">{{ pu.diagrams }}</h2>
+        {% for d in page.diagrams %}
+        {% assign dia_url = '/assets/img/diagramas/' | append: d.src | relative_url %}
+        <figure class="bw-frame deco-stepped-corner bg-[#171717] p-5 sm:p-6 space-y-4">
+          <figcaption class="space-y-1">
+            <span class="font-headline text-lg font-bold text-white block">{{ d.title }}</span>
+            <span class="font-body text-sm text-neutral-300 leading-relaxed block">{{ d.caption }}</span>
+          </figcaption>
+          <div class="diagram-stage">
+            <a href="{{ dia_url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ pu.open_full }}: {{ d.title | escape }}">
+              <img src="{{ dia_url }}" alt="{{ d.alt | escape }}" loading="lazy" decoding="async" class="diagram-img">
+            </a>
+          </div>
+          <a href="{{ dia_url }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 min-h-[44px] font-mono text-[11px] uppercase tracking-widest text-[#F4E0A5] hover:text-white transition">
+            {{ pu.open_full }} <span class="material-symbols-outlined text-sm" aria-hidden="true">open_in_full</span>
+          </a>
+        </figure>
+        {% endfor %}
+      </section>
+      {% endif %}
+
       {% if page.layers %}
       <section class="bw-frame bg-[#171717] p-6 sm:p-8 space-y-4">
         <h2 class="font-mono text-xs uppercase tracking-wider text-[#F4E0A5] font-bold">{{ pu.layers }}</h2>

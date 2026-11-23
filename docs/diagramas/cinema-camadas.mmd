@@ -1,0 +1,12 @@
+flowchart TD
+  C(["Cliente HTTP / Postman"]) --> R["Rotas Express<br/>infrastructure/http/routes"]
+  R --> CT["Controllers"]
+  CT --> UC["Casos de uso<br/>application/domínio/use-case"]
+  UC --> DTO["DTO e Mapper<br/>entrada e saída"]
+  UC --> DM["Domínio<br/>entidades e interface do repositório"]
+  DM <-.->|"implementa"| PR["Repositório Prisma 7<br/>infrastructure/database/prisma"]
+  PR --> PG[("PostgreSQL 17<br/>Docker Compose")]:::store
+  CT --> LG["Logs com Pino"]
+  classDef planned stroke-dasharray:6 4,stroke:#F4E0A5,color:#F4E0A5,fill:#2a2417;
+  classDef ext fill:#16221d,stroke:#5fae8a;
+  classDef store fill:#2a2417,stroke:#C5A059;

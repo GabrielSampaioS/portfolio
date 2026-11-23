@@ -44,4 +44,17 @@ evidence:
   - { label: "README do projeto", url: "https://github.com/GabrielSampaioS/LedgerFlow/blob/main/README.md" }
   - { label: "Docker Compose de infraestrutura (Nginx)", url: "https://github.com/GabrielSampaioS/LedgerFlow/blob/main/docker-compose.infra.yml" }
   - { label: "Testes", url: "https://github.com/GabrielSampaioS/LedgerFlow/tree/main/test" }
+diagrams:
+  - src: ledger-event-sourcing.svg
+    title: "Event Sourcing: escrita e leitura"
+    caption: "Escrever só adiciona eventos imutáveis; ler recalcula o saldo reaplicando os eventos. Snapshots de saldo são uma ideia futura."
+    alt: "Fluxograma com dois lados. Escrita: requisição com JWT, caso de uso, Factory escolhe a taxa, evento imutável salvo no MongoDB. Leitura: busca os eventos do cliente e getSaldo reaplica em ordem para gerar o saldo."
+  - src: ledger-infra.svg
+    title: "Infraestrutura local com Nginx"
+    caption: "O Nginx distribui as requisições entre duas instâncias da API (round-robin); as duas usam o mesmo MongoDB."
+    alt: "Diagrama: cliente HTTP na porta 80, Nginx com upstream round-robin, duas instâncias da API (api1 e api2) e um MongoDB 7."
+  - src: ledger-ci.svg
+    title: "Pipeline de CI"
+    caption: "Roda em Pull Request para a main: lint e testes em paralelo, depois build e publicação da imagem no Docker Hub."
+    alt: "Fluxograma: Pull Request para main dispara lint, testes unitários e testes de integração e E2E com MongoDB 7; os três alimentam o build, que chama o workflow reutilizável do Docker e publica a imagem no Docker Hub."
 ---

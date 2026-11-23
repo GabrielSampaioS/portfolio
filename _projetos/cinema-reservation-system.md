@@ -42,4 +42,17 @@ evidence:
   - { label: "README do projeto", url: "https://github.com/GabrielSampaioS/cinema-reservation-system/blob/main/readme.md" }
   - { label: "Rotas de reservas", url: "https://github.com/GabrielSampaioS/cinema-reservation-system/blob/main/src/infrastructure/http/routes/booking.routes.ts" }
   - { label: "Testes E2E", url: "https://github.com/GabrielSampaioS/cinema-reservation-system/tree/main/test/e2e" }
+diagrams:
+  - src: cinema-camadas.svg
+    title: "Arquitetura em camadas"
+    caption: "Da rota HTTP ao PostgreSQL. O caso de uso depende da interface do repositório; a implementação com Prisma fica na infraestrutura."
+    alt: "Diagrama em camadas: cliente HTTP, rotas Express, controllers, casos de uso, domínio com a interface do repositório, repositório Prisma e banco PostgreSQL. DTO e Mapper ligam-se ao caso de uso e os logs com Pino ao controller."
+  - src: cinema-er.svg
+    title: "Modelo de dados"
+    caption: "Entidades e relacionamentos do schema Prisma. Cada reserva liga cliente, sessão, assento e status."
+    alt: "Diagrama entidade-relacionamento com Theatre, Room, Seat, Session, Movie, Client, Status e Booking. Booking referencia cliente, sessão, assento e status e guarda expiresAt."
+  - src: cinema-reserva-estados.svg
+    title: "Ciclo de vida da reserva"
+    caption: "A reserva nasce PENDING com expiresAt em 15 minutos. A expiração automática (EXPIRED) é planejada e ainda não existe."
+    alt: "Diagrama de estados: POST /bookings cria a reserva PENDING; PATCH /bookings/:id leva a CONFIRMED ou CANCELLED; a passagem automática para EXPIRED está planejada."
 ---

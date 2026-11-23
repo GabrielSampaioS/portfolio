@@ -1,0 +1,21 @@
+flowchart LR
+  subgraph ING["Ingestão (offline, local)"]
+    direction TB
+    P(["PDFs"]) --> L["PyPDFLoader"]
+    L --> S["RecursiveCharacterTextSplitter<br/>chunks"]
+    S --> M["Metadados por regras<br/>categorias e tópicos"]
+    M --> EM["Embeddings<br/>Nomic Embed Text (Ollama)"]
+  end
+  EM --> CH[("ChromaDB<br/>persistente")]:::store
+  subgraph CON["Consulta"]
+    direction TB
+    Q(["Pergunta"]) --> QE["Embedding da pergunta"]
+    QE --> BS["Busca por similaridade<br/>filtro por categoria"]
+    BS --> LLM["Modelo no Ollama<br/>gera a resposta só com os trechos"]
+    LLM --> R(["Resposta + documento e página"])
+  end
+  CH --> BS
+  X["BM25 + reranking<br/>métricas Precision@K e Recall@K"]:::planned -.-> BS
+  classDef planned stroke-dasharray:6 4,stroke:#F4E0A5,color:#F4E0A5,fill:#2a2417;
+  classDef ext fill:#16221d,stroke:#5fae8a;
+  classDef store fill:#2a2417,stroke:#C5A059;

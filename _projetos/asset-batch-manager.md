@@ -30,4 +30,13 @@ status:
 evidence:
   - { label: "README do projeto", url: "https://github.com/GabrielSampaioS/asset-batch-manager/blob/main/README.md" }
   - { label: "Código em lib/", url: "https://github.com/GabrielSampaioS/asset-batch-manager/tree/main/lib" }
+diagrams:
+  - src: asset-camadas.svg
+    title: "Arquitetura em camadas"
+    caption: "Telas, controllers, domínio e dados separados; o domínio define as regras e a camada de dados fala com o Firebase e com os leitores."
+    alt: "Diagrama em camadas do app Flutter: presentation, application, domain e data; a camada de dados usa repositórios do Firebase Auth e do Firestore e leitores de QR Code e DataWedge."
+  - src: asset-fluxo-lote.svg
+    title: "Fluxo de criação de um lote"
+    caption: "Do login ao commit atômico: lote e itens são salvos juntos em um WriteBatch. A sincronização offline robusta é planejada."
+    alt: "Fluxograma: login, início, novo lote, identificação do ativo por QR ou DataWedge, status limitado ao tipo, item entra no lote, salvar lote com WriteBatch do Firestore em um commit atômico. Sincronização offline robusta está planejada."
 ---

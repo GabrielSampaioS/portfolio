@@ -1,0 +1,21 @@
+flowchart LR
+  subgraph ESC["Escrita: só adiciona eventos"]
+    direction TB
+    W(["POST dívida ou pagamento"]) --> RT["Rota + JWT"]
+    RT --> UCW["Caso de uso"]
+    UCW --> FEE["Factory escolhe a Strategy<br/>PIX 0%, Dinheiro 0%, Crédito 5%"]
+    FEE --> EV["Evento imutável<br/>DividaRegistrada / PagamentoEfetuado"]
+  end
+  EV -->|"save(evento)"| MG[("MongoDB<br/>eventos em ordem de created_at")]:::store
+  subgraph LEI["Leitura: o saldo é calculado"]
+    direction TB
+    G(["GET saldo do cliente"]) --> UCR["Caso de uso"]
+    UCR --> FD["find(eventos do cliente)"]
+    FD --> RP["getSaldo()<br/>reaplica os eventos em ordem"]
+    RP --> SD(["Saldo"])
+  end
+  MG --> FD
+  SN["Snapshots de saldo"]:::planned -.-> RP
+  classDef planned stroke-dasharray:6 4,stroke:#F4E0A5,color:#F4E0A5,fill:#2a2417;
+  classDef ext fill:#16221d,stroke:#5fae8a;
+  classDef store fill:#2a2417,stroke:#C5A059;

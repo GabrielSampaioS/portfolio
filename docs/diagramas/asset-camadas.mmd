@@ -1,0 +1,12 @@
+flowchart TD
+  P["presentation<br/>telas e componentes Flutter"] --> AP["application<br/>controllers: auth, batch_form, qr_scanner<br/>Provider + go_router"]
+  AP --> DM["domain<br/>casos de uso, entidades, regras allowedStatus<br/>interfaces de repositório"]
+  DM <-.->|"implementam"| DT["data<br/>repositórios e leitores"]
+  DT --> FA["FirebaseAuthRepository"]
+  DT --> FS["FirestoreBatchRepository"]
+  DT --> LD["Leitores:<br/>MobileScanner (QR) e<br/>DataWedge (Zebra)"]
+  FA --> FB1[("Firebase Auth<br/>e-mail e Google")]:::ext
+  FS --> FB2[("Cloud Firestore")]:::store
+  classDef planned stroke-dasharray:6 4,stroke:#F4E0A5,color:#F4E0A5,fill:#2a2417;
+  classDef ext fill:#16221d,stroke:#5fae8a;
+  classDef store fill:#2a2417,stroke:#C5A059;
